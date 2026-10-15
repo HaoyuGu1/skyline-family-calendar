@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>综合日历 · 10年级 / JV-B / Band</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --surface: #ffffff;
+      --text: #1a1d26;
+      --muted: #5c6578;
+      --border: #e4e8f0;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --grade10: #7c3aed;
+      --grade10-soft: #ede9fe;
+      --hs: #0891b2;
+      --hs-soft: #cffafe;
+      --all: #059669;
+      --all-soft: #d1fae5;
+      --school: #2563eb;
+      --school-soft: #dbeafe;
+      --soccer: #ea580c;
+      --soccer-soft: #ffedd5;
+      --band: #db2777;
+      --band-soft: #fce7f3;
+      --shadow: 0 8px 30px rgba(26, 29, 38, 0.08);
+      --radius: 16px;
+      --font: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #dbeafe 0%, transparent 55%),
+        radial-gradient(900px 400px at 100% 0%, #fce7f3 0%, transparent 50%),
+        radial-gradient(700px 350px at 50% 100%, #ffedd5 0%, transparent 45%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .app {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header.hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 35%, #db2777 70%, #ea580c 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+    }
+    header.hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+    }
+    header.hero .subtitle {
+      margin: 0;
+      opacity: 0.92;
+      font-size: 0.95rem;
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
+    }
+    header.hero a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .filters, .source-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .filter-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-right: 2px;
+    }
+    .chip {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .chip:hover { border-color: #c7d2fe; color: var(--text); }
+    .chip.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .chip.active.grade10 {
+      background: var(--grade10);
+      border-color: var(--grade10);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.28);
+    }
+    .chip.source-chip.active.school {
+      background: var(--school);
+      border-color: var(--school);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+    }
+    .chip.source-chip.active.soccer {
+      background: var(--soccer);
+      border-color: var(--soccer);
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.28);
+    }
+    .chip.source-chip.active.band {
+      background: var(--band);
+      border-color: var(--band);
+      box-shadow: 0 4px 12px rgba(219, 39, 119, 0.28);
+    }
+
+    .source-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(26, 29, 38, 0.04);
+    }
+
+    .view-toggle {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .view-toggle button {
+      border: 0;
+      background: transparent;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .view-toggle button.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 16px;
+      align-items: start;
+      min-width: 0;
+    }
+    .layout > * { min-width: 0; }
+    @media (max-width: 920px) {
+      .layout { grid-template-columns: minmax(0, 1fr); }
+      .side { order: 2; }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      gap: 8px;
+    }
+    .cal-nav h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .nav-btns { display: flex; gap: 6px; }
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-btn:hover { background: var(--bg); }
+    .icon-btn.today-btn {
+      width: auto;
+      padding: 0 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+      padding: 10px 12px 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+      min-width: 0;
+    }
+    .weekdays > span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+      padding: 8px 12px 14px;
+      width: 100%;
+      min-width: 0;
+    }
+    .day {
+      min-width: 0;
+      max-width: 100%;
+      min-height: 92px;
+      max-height: 140px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      padding: 6px;
+      cursor: pointer;
+      background: #fafbff;
+      transition: border-color 0.12s, background 0.12s, transform 0.12s;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow: hidden;
+    }
+    .day:hover { border-color: #c7d2fe; background: #fff; transform: translateY(-1px); }
+    .day.other { opacity: 0.38; }
+    .day.selected {
+      border-color: var(--accent);
+      background: #eff6ff;
+      box-shadow: inset 0 0 0 1px rgba(37,99,235,0.15);
+    }
+    .day.today .num {
+      background: var(--accent);
+      color: #fff;
+    }
+    .num {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 650;
+    }
+    .chips {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      overflow: hidden;
+      min-width: 0;
+      width: 100%;
+      flex: 1 1 auto;
+    }
+    .ev-chip {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      font-size: 0.68rem;
+      line-height: 1.2;
+      border-radius: 6px;
+      padding: 2px 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      border-left: 3px solid transparent;
+    }
+    .ev-chip.school { background: var(--school-soft); color: #1e40af; border-left-color: var(--school); }
+    .ev-chip.soccer { background: var(--soccer-soft); color: #9a3412; border-left-color: var(--soccer); }
+    .ev-chip.band { background: var(--band-soft); color: #9d174d; border-left-color: var(--band); }
+    .ev-chip.grade10 {
+      font-weight: 700;
+      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.2);
+    }
+    .ev-chip.struck, .struck {
+      text-decoration: line-through;
+      opacity: 0.65;
+    }
+    .more {
+      font-size: 0.68rem;
+      color: var(--muted);
+      padding-left: 2px;
+    }
+
+    .side {
+      position: sticky;
+      top: 16px;
+    }
+    .side .panel-head {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .side .panel-head h3 {
+      margin: 0 0 4px;
+      font-size: 1.05rem;
+    }
+    .side .panel-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .panel-body {
+      padding: 14px 16px 18px;
+      max-height: min(70vh, 640px);
+      overflow: auto;
+    }
+    .empty {
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 18px 8px;
+      text-align: center;
+    }
+    .event-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 12px 12px 14px;
+      margin-bottom: 10px;
+      background: #fff;
+      border-left: 4px solid var(--school);
+    }
+    .event-card.school { border-left-color: var(--school); }
+    .event-card.soccer {
+      border-left-color: var(--soccer);
+      background: linear-gradient(90deg, #fff7ed 0%, #fff 40%);
+    }
+    .event-card.band {
+      border-left-color: var(--band);
+      background: linear-gradient(90deg, #fdf2f8 0%, #fff 40%);
+    }
+    .event-card.grade10 {
+      box-shadow: inset 0 0 0 1px rgba(124, 58, 237, 0.12);
+    }
+    .event-card h4 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+    }
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-weight: 600;
+    }
+    .tag.all { background: var(--all-soft); color: #065f46; }
+    .tag.hs { background: var(--hs-soft); color: #155e75; }
+    .tag.grade10 { background: var(--grade10-soft); color: #5b21b6; }
+    .tag.jvb { background: var(--soccer-soft); color: #9a3412; }
+    .tag.marching, .tag.symphony { background: var(--band-soft); color: #9d174d; }
+    .tag.source { background: #f1f5f9; color: #475569; }
+    .tag.source-school { background: var(--school-soft); color: #1e40af; }
+    .tag.source-soccer { background: var(--soccer-soft); color: #9a3412; }
+    .tag.source-band { background: var(--band-soft); color: #9d174d; }
+    .event-date, .event-note {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .event-note { margin-top: 4px; }
+
+    .list-view { display: none; }
+    .list-view.active { display: block; }
+    .month-view.hidden { display: none; }
+
+    .list-month {
+      margin: 8px 16px 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .list-item { margin: 0 12px 10px; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 16px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.school { background: var(--school); }
+    .dot.soccer { background: var(--soccer); }
+    .dot.band { background: var(--band); }
+    .dot.grade10 { background: var(--grade10); }
+
+    footer.note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .day { min-height: 72px; max-height: 118px; padding: 4px; }
+      .ev-chip { font-size: 0.62rem; }
+      .num { width: 22px; height: 22px; font-size: 0.78rem; }
+      .app { padding: 14px 10px 36px; overflow-x: hidden; }
+      header.hero { padding: 20px 18px; border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <h1>综合日历 · 10年级 / JV-B / Band</h1>
+      <p class="subtitle">
+        汇总学校、足球 JV-B、乐队（Marching + Symphony）日程。
+        来源：
+        <a href="https://www.a2schools.org/about-aaps/calendars" target="_blank" rel="noopener">AAPS</a>
+        ·
+        <a href="https://sites.google.com/view/skysocmens/schedule" target="_blank" rel="noopener">Sky Soccer</a>
+        ·
+        <a href="https://skylinehsband.weebly.com/calendar.html" target="_blank" rel="noopener">Skyline Band</a>
+      </p>
+      <div class="badge-row">
+        <span class="badge">AAPS 2026–27 · 10 年级</span>
+        <span class="badge">足球 JV-B（含 2025–26）</span>
+        <span class="badge">乐队 Marching + Symphony</span>
+        <span class="badge">网页版 · 可离线打开</span>
+      </div>
+    </header>
+
+    <div class="source-bar" role="group" aria-label="来源筛选">
+      <span class="filter-label">来源 Sources</span>
+      <button type="button" class="chip source-chip school active" data-source="AAPS">学校 AAPS</button>
+      <button type="button" class="chip source-chip soccer active" data-source="Sky Soccer">足球 JV-B</button>
+      <button type="button" class="chip source-chip band active" data-source="Skyline Band">乐队 Marching+Symphony</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="标签筛选">
+        <span class="filter-label">标签</span>
+        <button type="button" class="chip active" data-filter="all">全部</button>
+        <button type="button" class="chip grade10" data-filter="grade10">仅 10 年级特有</button>
+        <button type="button" class="chip" data-filter="hs">高中日程</button>
+        <button type="button" class="chip" data-filter="jvb">JV-B</button>
+        <button type="button" class="chip" data-filter="marching">Marching</button>
+        <button type="button" class="chip" data-filter="symphony">Symphony</button>
+      </div>
+      <div class="view-toggle" role="group" aria-label="视图">
+        <button type="button" class="active" data-view="month">月视图 Month</button>
+        <button type="button" data-view="list">列表 Upcoming</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <section class="card month-view" id="monthView">
+        <div class="cal-nav">
+          <h2 id="monthTitle">—</h2>
+          <div class="nav-btns">
+            <button type="button" class="icon-btn" id="prevMonth" aria-label="上个月">‹</button>
+            <button type="button" class="icon-btn today-btn" id="goToday">今天</button>
+            <button type="button" class="icon-btn" id="nextMonth" aria-label="下个月">›</button>
+          </div>
+        </div>
+        <div class="weekdays">
+          <div>日 Sun</div><div>一 Mon</div><div>二 Tue</div><div>三 Wed</div>
+          <div>四 Thu</div><div>五 Fri</div><div>六 Sat</div>
+        </div>
+        <div class="days" id="daysGrid"></div>
+        <div class="legend">
+          <span><i class="dot school"></i> 学校 AAPS</span>
+          <span><i class="dot soccer"></i> 足球 JV-B</span>
+          <span><i class="dot band"></i> 乐队 Band</span>
+          <span><i class="dot grade10"></i> 10 年级特有</span>
+        </div>
+      </section>
+
+      <section class="card list-view" id="listView">
+        <div class="panel-head">
+          <h3>即将到来的日程</h3>
+          <p>按日期排序 · Upcoming events</p>
+        </div>
+        <div class="panel-body" id="listBody"></div>
+      </section>
+
+      <aside class="card side" id="detailPanel">
+        <div class="panel-head">
+          <h3 id="detailTitle">选择一天</h3>
+          <p id="detailSub">点击月历中的日期查看详情</p>
+        </div>
+        <div class="panel-body" id="detailBody">
+          <div class="empty">暂无选中日期 · Pick a day on the calendar</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="note" id="statsNote">
+      三源综合日历 · 数据已嵌入本页，可离线使用
+    </footer>
+  </div>
+
+  <script>
+    /** @typedef {{ id:string, title:string, startDate:string, endDate:string, notes?:string, tags:string[], source:string }} CalEvent */
+
+    /** @type {CalEvent[]} */
+    const EVENTS = [
+  {
+    "id": "aaps-1",
+    "title": "First Day for Students - Half Day",
+    "startDate": "2026-08-31",
+    "endDate": "2026-08-31",
+    "notes": "学生开学第一天（半天）",
+    "tags": [
+      "all",
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-2",
+    "title": "No School — Labor Day",
+    "startDate": "2026-09-04",
+    "endDate": "2026-09-07",
+    "notes": "劳工节假期",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-3",
+    "title": "No School for Students; Staff PD",
+    "startDate": "2026-09-28",
+    "endDate": "2026-09-28",
+    "notes": "学生不上学；教职工专业发展日",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-4",
+    "title": "Student Count Day",
+    "startDate": "2026-10-07",
+    "endDate": "2026-10-07",
+    "notes": "学生人数统计日",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-5",
+    "title": "Late Start for 10th (11th PSAT/NMSQT)",
+    "startDate": "2026-10-08",
+    "endDate": "2026-10-08",
+    "notes": "Late start for 9th, 10th & 12th · 10/11/12 年级晚到；11 年级 PSAT/NMSQT",
+    "tags": [
+      "grade10",
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-6",
+    "title": "No School — Early Fall Break",
+    "startDate": "2026-10-09",
+    "endDate": "2026-10-12",
+    "notes": "早秋假期",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-7",
+    "title": "High School Full Day (Elem/MS half day for report writing)",
+    "startDate": "2026-10-30",
+    "endDate": "2026-10-30",
+    "notes": "高中全日上课；小学/初中半天（写评语）",
+    "tags": [
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-8",
+    "title": "No School — Election Day",
+    "startDate": "2026-11-03",
+    "endDate": "2026-11-03",
+    "notes": "选举日放假",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-9",
+    "title": "No School — Thanksgiving Break",
+    "startDate": "2026-11-25",
+    "endDate": "2026-11-27",
+    "notes": "感恩节假期",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-10",
+    "title": "No School for Students; Staff PD",
+    "startDate": "2026-12-09",
+    "endDate": "2026-12-09",
+    "notes": "学生不上学；教职工专业发展日",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-11",
+    "title": "No School — Winter Break",
+    "startDate": "2026-12-21",
+    "endDate": "2027-01-01",
+    "notes": "寒假",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-12",
+    "title": "School Resumes",
+    "startDate": "2027-01-04",
+    "endDate": "2027-01-04",
+    "notes": "开学复课",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-13",
+    "title": "No School — MLK Day",
+    "startDate": "2027-01-18",
+    "endDate": "2027-01-18",
+    "notes": "马丁·路德·金纪念日",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-14",
+    "title": "Student Count Day",
+    "startDate": "2027-02-10",
+    "endDate": "2027-02-10",
+    "notes": "学生人数统计日",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-15",
+    "title": "No School — Mid-Winter Break",
+    "startDate": "2027-02-12",
+    "endDate": "2027-02-15",
+    "notes": "仲冬假期",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-16",
+    "title": "High School Full Day (Elem/MS half day)",
+    "startDate": "2027-03-09",
+    "endDate": "2027-03-09",
+    "notes": "高中全日；小学/初中半天",
+    "tags": [
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-17",
+    "title": "No School — Spring Break",
+    "startDate": "2027-03-26",
+    "endDate": "2027-04-02",
+    "notes": "春假",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-18",
+    "title": "Late Start for 10th (PSAT 8/9; WorkKeys 11)",
+    "startDate": "2027-04-08",
+    "endDate": "2027-04-08",
+    "notes": "10 年级晚到；PSAT 8/9 与 11 年级 WorkKeys",
+    "tags": [
+      "grade10",
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-19",
+    "title": "PSAT for 10th Grade (also SAT 11th; late start 9 & 12)",
+    "startDate": "2027-04-14",
+    "endDate": "2027-04-14",
+    "notes": "PSAT/SAT Testing 10th & 11th · 10 年级 PSAT；11 年级 SAT；9/12 晚到",
+    "tags": [
+      "grade10",
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-20",
+    "title": "Half Day for High School (8th Grade Transition Day)",
+    "startDate": "2027-04-26",
+    "endDate": "2027-04-26",
+    "notes": "高中半天（八年级过渡日）",
+    "tags": [
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-21",
+    "title": "No School for Students; Staff PD — Election Day",
+    "startDate": "2027-05-04",
+    "endDate": "2027-05-04",
+    "notes": "选举日；学生不上学；教职工专业发展",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-22",
+    "title": "High School Full Day (Elem/K-8 half day)",
+    "startDate": "2027-05-13",
+    "endDate": "2027-05-13",
+    "notes": "高中全日；小学/K-8 半天",
+    "tags": [
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-23",
+    "title": "No School — Memorial Day",
+    "startDate": "2027-05-31",
+    "endDate": "2027-05-31",
+    "notes": "阵亡将士纪念日",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-24",
+    "title": "High School Final Exams",
+    "startDate": "2027-06-11",
+    "endDate": "2027-06-12",
+    "notes": "高中期末考试 · specific days/schedule vary by school",
+    "tags": [
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-24b",
+    "title": "High School Final Exams",
+    "startDate": "2027-06-14",
+    "endDate": "2027-06-16",
+    "notes": "高中期末考试 · specific days/schedule vary by school",
+    "tags": [
+      "hs"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "aaps-25",
+    "title": "Last Day of School — Half Day",
+    "startDate": "2027-06-16",
+    "endDate": "2027-06-16",
+    "notes": "学年最后一天（半天）",
+    "tags": [
+      "all"
+    ],
+    "source": "AAPS"
+  },
+  {
+    "id": "soccer-1",
+    "title": "JV-B Practice (rrule)",
+    "startDate": "2025-08-18",
+    "endDate": "2025-08-18",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-2",
+    "title": "JV-B @ Huron (A)",
+    "startDate": "2025-08-19",
+    "endDate": "2025-08-19",
+    "notes": "Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-3",
+    "title": "JV-B Practice (time TBD)",
+    "startDate": "2025-08-21",
+    "endDate": "2025-08-21",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-4",
+    "title": "JV-B vs. Salem (H)",
+    "startDate": "2025-08-27",
+    "endDate": "2025-08-27",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-5",
+    "title": "JV-B vs. Saline (H)",
+    "startDate": "2025-08-28",
+    "endDate": "2025-08-28",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-6",
+    "title": "JV-B @ Pioneer (A)",
+    "startDate": "2025-09-02",
+    "endDate": "2025-09-02",
+    "notes": "Pioneer High School, 601 W Stadium Blvd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-7",
+    "title": "JV-B Practice (Stadium)",
+    "startDate": "2025-09-04",
+    "endDate": "2025-09-04",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-8",
+    "title": "JV-B Practice (time TBD)",
+    "startDate": "2025-09-04",
+    "endDate": "2025-09-04",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-9",
+    "title": "JV-B @ Salem (A) (2:45 BUS)",
+    "startDate": "2025-09-08",
+    "endDate": "2025-09-08",
+    "notes": "PCEP Varsity Football Field/Track, N Canton Center Rd, Canton Township, MI 48187, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-10",
+    "title": "JV-B vs. Huron (H)",
+    "startDate": "2025-09-09",
+    "endDate": "2025-09-09",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-11",
+    "title": "JV-B Practice (Track Field)",
+    "startDate": "2025-09-11",
+    "endDate": "2025-09-11",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-12",
+    "title": "JV-B Practice (time TBD)",
+    "startDate": "2025-09-11",
+    "endDate": "2025-09-11",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-13",
+    "title": "JV-B @ Plymouth (A) [bus leaves at 2:45 p.m./North  stadium field closest to Salem HS]",
+    "startDate": "2025-09-18",
+    "endDate": "2025-09-18",
+    "notes": "8415 N. Canton Rd  Canton, MI, 48187",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-14",
+    "title": "JV-B Team Dinner",
+    "startDate": "2025-09-21",
+    "endDate": "2025-09-21",
+    "notes": "5787 Villa France Ave, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-15",
+    "title": "JV-B Practice",
+    "startDate": "2025-09-22",
+    "endDate": "2025-09-22",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-16",
+    "title": "JV-B Practice (rrule)",
+    "startDate": "2025-09-24",
+    "endDate": "2025-09-24",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-17",
+    "title": "JV-B vs. Pioneer (H)",
+    "startDate": "2025-09-25",
+    "endDate": "2025-09-25",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-18",
+    "title": "JV-B vs. Huron (H)",
+    "startDate": "2025-09-30",
+    "endDate": "2025-09-30",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-19",
+    "title": "JV-B RISE",
+    "startDate": "2025-10-01",
+    "endDate": "2025-10-01",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-20",
+    "title": "JV-B Practice",
+    "startDate": "2025-10-02",
+    "endDate": "2025-10-02",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-21",
+    "title": "JV-B Practice (time TBD)",
+    "startDate": "2025-10-02",
+    "endDate": "2025-10-02",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-22",
+    "title": "JV-B RISE",
+    "startDate": "2025-10-03",
+    "endDate": "2025-10-03",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-23",
+    "title": "JV-B Team Dinner (Ezra’s house)",
+    "startDate": "2025-10-05",
+    "endDate": "2025-10-05",
+    "notes": "50770 Breckenridge Dr, Canton Township, MI 48187, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-24",
+    "title": "JV-B @ Novi (A) (2:15 PM BUS)",
+    "startDate": "2025-10-06",
+    "endDate": "2025-10-06",
+    "notes": "Novi Meadows Stadium, 45825 W 11 Mile Rd, Novi, MI 48374, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-25",
+    "title": "JV-B @ Huron (A)",
+    "startDate": "2025-10-07",
+    "endDate": "2025-10-07",
+    "notes": "Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-26",
+    "title": "JV-B RISE",
+    "startDate": "2025-10-08",
+    "endDate": "2025-10-08",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-27",
+    "title": "JV-B RISE",
+    "startDate": "2025-10-14",
+    "endDate": "2025-10-14",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-28",
+    "title": "JV-B RISE",
+    "startDate": "2025-10-22",
+    "endDate": "2025-10-22",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-29",
+    "title": "JV-B RISE",
+    "startDate": "2025-10-27",
+    "endDate": "2025-10-27",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-30",
+    "title": "JV-B Practice",
+    "startDate": "2026-08-14",
+    "endDate": "2026-08-14",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-31",
+    "title": "JV-B @ Independence Park Field 11 (Scrimmage)",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-15",
+    "notes": "Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-32",
+    "title": "JV-B @ Independence Park Field 3 (Scrimmage)",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-15",
+    "notes": "Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-33",
+    "title": "JV-B @ Independence Park Field 5 (Scrimmage)",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-15",
+    "notes": "Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-34",
+    "title": "JV-B Practice @ Track Field",
+    "startDate": "2026-08-17",
+    "endDate": "2026-08-17",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-35",
+    "title": "JV-B Practice @ Track Field",
+    "startDate": "2026-08-18",
+    "endDate": "2026-08-18",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-36",
+    "title": "JV-B Practice @ Track Field",
+    "startDate": "2026-08-19",
+    "endDate": "2026-08-19",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-37",
+    "title": "JV-B Practice (Track Field)",
+    "startDate": "2026-08-20",
+    "endDate": "2026-08-20",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-38",
+    "title": "JV-B Practice (Track Field)",
+    "startDate": "2026-08-21",
+    "endDate": "2026-08-21",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-39",
+    "title": "JV-B Practice - Track Field",
+    "startDate": "2026-08-24",
+    "endDate": "2026-08-24",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-40",
+    "title": "JV-B Practice - Stadium, if open, otherwise track and field",
+    "startDate": "2026-08-25",
+    "endDate": "2026-08-25",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-41",
+    "title": "JV-B Practice - Track Field",
+    "startDate": "2026-08-26",
+    "endDate": "2026-08-26",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-42",
+    "title": "JV-B Practice - Track Field",
+    "startDate": "2026-08-27",
+    "endDate": "2026-08-27",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-43",
+    "title": "JV-B Practice - Track Field",
+    "startDate": "2026-08-28",
+    "endDate": "2026-08-28",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-44",
+    "title": "JV-B Practice @ Track",
+    "startDate": "2026-08-31",
+    "endDate": "2026-08-31",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-45",
+    "title": "JV-B @ Saline 3:00pm arrival for warm-up",
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-01",
+    "notes": "Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-46",
+    "title": "JV-B Practice @ Track (rrule)",
+    "startDate": "2026-09-02",
+    "endDate": "2026-09-02",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-47",
+    "title": "JV-B vs. Pioneer 3:00pm arrival for warm-up",
+    "startDate": "2026-09-03",
+    "endDate": "2026-09-03",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-48",
+    "title": "JV-B TBD",
+    "startDate": "2026-09-04",
+    "endDate": "2026-09-04",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-49",
+    "title": "JVA and JVB TBD",
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-07",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-50",
+    "title": "JV-B vs Monroe 3pm arrival for warm-up",
+    "startDate": "2026-09-08",
+    "endDate": "2026-09-08",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-51",
+    "title": "JV-B Team Hangout and Lunch",
+    "startDate": "2026-09-13",
+    "endDate": "2026-09-13",
+    "notes": "4500 N Maple Rd, Ann Arbor, MI 48105, USA also thank you offered family for offering to host a team activity please reach out if you would like to host if anyone else would like to host a team dinner or a team activity thank you",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-52",
+    "title": "JV-B vs. Salem 3pm warm-up",
+    "startDate": "2026-09-14",
+    "endDate": "2026-09-14",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-53",
+    "title": "JV-B Practice @ Track",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-15",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-54",
+    "title": "JV B practice @ track",
+    "startDate": "2026-09-17",
+    "endDate": "2026-09-17",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-55",
+    "title": "JV-B @ Northville 8am arrival",
+    "startDate": "2026-09-19",
+    "endDate": "2026-09-19",
+    "notes": "Northville High School, 45700 Six Mile Rd, Northville, MI 48168, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-56",
+    "title": "JV-B South Lyon 4pm bus departure",
+    "startDate": "2026-09-22",
+    "endDate": "2026-09-22",
+    "notes": "South Lyon High School, 1000 N Lafayette St, South Lyon, MI 48178, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-57",
+    "title": "JV-B bus departure @ 4pm",
+    "startDate": "2026-09-22",
+    "endDate": "2026-09-22",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-58",
+    "title": "JV-B vs. Saline 3:00pm arrival for warm-up",
+    "startDate": "2026-09-24",
+    "endDate": "2026-09-24",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-59",
+    "title": "JV-B @ Pioneer 3pm arrival for warm-up",
+    "startDate": "2026-09-29",
+    "endDate": "2026-09-29",
+    "notes": "Pioneer High School, 601 W Stadium Blvd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-60",
+    "title": "JV-B vs. Monroe 3:00pm arrival for warm-up",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-01",
+    "notes": "Monroe High School, 901 Herr Rd, Monroe, MI 48161, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-61",
+    "title": "JVA and JVB bus departure - return after JVA game",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-01",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-62",
+    "title": "JVB practice @ track",
+    "startDate": "2026-10-02",
+    "endDate": "2026-10-02",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-63",
+    "title": "JV-B v Pioneer 8am warmup",
+    "startDate": "2026-10-03",
+    "endDate": "2026-10-03",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-64",
+    "title": "JV-B Dinner @ Track following practice",
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-05",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-65",
+    "title": "JV-B vs. Huron 3pm arrival for warm-up",
+    "startDate": "2026-10-06",
+    "endDate": "2026-10-06",
+    "notes": "Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-66",
+    "title": "JV-B Practice @ Track",
+    "startDate": "2026-10-07",
+    "endDate": "2026-10-07",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-67",
+    "title": "JV-B practice @ track",
+    "startDate": "2026-10-08",
+    "endDate": "2026-10-08",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-68",
+    "title": "JV-B @ Huron  3pm warmup",
+    "startDate": "2026-10-12",
+    "endDate": "2026-10-12",
+    "notes": "Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA · Confirmed away @ Huron HS (email clarification 10/12; not home)",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-69",
+    "title": "JV-B practice- track",
+    "startDate": "2026-10-13",
+    "endDate": "2026-10-13",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-70",
+    "title": "JV-B @ Saline 3pm arrival for warm-up (NO BUSSES)",
+    "startDate": "2026-10-14",
+    "endDate": "2026-10-14",
+    "notes": "Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA · JV-B dismissed from school at 2:15 PM; no bussing",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-71",
+    "title": "JV-B Final practice- track",
+    "startDate": "2026-10-15",
+    "endDate": "2026-10-15",
+    "notes": "",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-72",
+    "title": "JV-B Team DInner",
+    "startDate": "2026-10-17",
+    "endDate": "2026-10-17",
+    "notes": "1155 N Bay Dr, Ann Arbor, MI 48103, USA",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-73",
+    "title": "JV-B Final Banquet @ Chelas in Dexter (7–9pm)",
+    "startDate": "2026-10-19",
+    "endDate": "2026-10-19",
+    "notes": "Chela's, 7065 Dexter Ann Arbor Rd, Dexter, MI 48130, USA · 7:00–9:00pm taco bar; up to 2 guests; RSVP; ~$5/person",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "soccer-74",
+    "title": "JV-B post-season lunch @ Olley's House (11am)",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-01",
+    "notes": "4500 N Maple Rd, Ann Arbor, MI 48105, USA · starts 11:00am (Olley's House)",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "band-1",
+    "title": "SL & New Members Marching Rehearsal",
+    "startDate": "2025-08-05",
+    "endDate": "2025-08-05",
+    "notes": "C116 Band Room, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-2",
+    "title": "Band Camp",
+    "startDate": "2025-08-12",
+    "endDate": "2025-08-12",
+    "notes": "",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-3",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-08-27",
+    "endDate": "2025-08-27",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-4",
+    "title": "Home Football Game (Annapolis)",
+    "startDate": "2025-08-29",
+    "endDate": "2025-08-29",
+    "notes": "Band Room C116, Stadium",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-5",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-09-03",
+    "endDate": "2025-09-03",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-6",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-09-10",
+    "endDate": "2025-09-10",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-7",
+    "title": "Home Football Game (Monroe)",
+    "startDate": "2025-09-12",
+    "endDate": "2025-09-12",
+    "notes": "C116, Stadium",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-8",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-09-17",
+    "endDate": "2025-09-17",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-9",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-09-24",
+    "endDate": "2025-09-24",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-10",
+    "title": "Home Football Game (Bedford)",
+    "startDate": "2025-09-26",
+    "endDate": "2025-09-26",
+    "notes": "C116 Band Room, Stadium",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-11",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-10-01",
+    "endDate": "2025-10-01",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-12",
+    "title": "Homecoming Parade",
+    "startDate": "2025-10-03",
+    "endDate": "2025-10-03",
+    "notes": "C116 Band Room",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-13",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-10-08",
+    "endDate": "2025-10-08",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-14",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-10-15",
+    "endDate": "2025-10-15",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-15",
+    "title": "Home Football Game (Marlette)",
+    "startDate": "2025-10-17",
+    "endDate": "2025-10-17",
+    "notes": "C116 Band Room, Stadium",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-16",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2025-10-22",
+    "endDate": "2025-10-22",
+    "notes": "C116, Stadium, Grassy Knoll",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-17",
+    "title": "Home Football Game (Summit Academy) - CANCELLED",
+    "startDate": "2025-10-24",
+    "endDate": "2025-10-24",
+    "notes": "C116 Band, Stadium",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-18",
+    "title": "Marching Band Banquet",
+    "startDate": "2025-11-11",
+    "endDate": "2025-11-11",
+    "notes": "C116 Band Room, Commons",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-19",
+    "title": "Marching Band Banquet",
+    "startDate": "2025-12-16",
+    "endDate": "2025-12-16",
+    "notes": "Skyline Commons",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-20",
+    "title": "Band Winter Concert",
+    "startDate": "2026-01-14",
+    "endDate": "2026-01-14",
+    "notes": "C116, C104, C110, Auditorium",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-21",
+    "title": "VPAA Arts Benefit Performance",
+    "startDate": "2026-02-12",
+    "endDate": "2026-02-12",
+    "notes": "C116, Auditorium",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-22",
+    "title": "Bands in Review North",
+    "startDate": "2026-03-17",
+    "endDate": "2026-03-17",
+    "notes": "C116, C110, C104, C134, Auditorium",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-23",
+    "title": "Picnic Pops Concert 12-6pm",
+    "startDate": "2026-05-17",
+    "endDate": "2026-05-17",
+    "notes": "@Pioneer",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-24",
+    "title": "Marching Band Section Leaders",
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-10",
+    "notes": "C116 band room",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-25",
+    "title": "Marching Band Section Leaders and New Members",
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-11",
+    "notes": "C116 band room, gym",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-26",
+    "title": "Skyline Band Camp",
+    "startDate": "2026-08-18",
+    "endDate": "2026-08-18",
+    "notes": "Interlochen Center for the Arts, 4000 J. Maddy Pkwy, Interlochen, MI 49643, USA",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-27",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2026-09-02",
+    "endDate": "2026-09-02",
+    "notes": "C116 band room, stadium",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-28",
+    "title": "Home Football Game (Saline)",
+    "startDate": "2026-09-04",
+    "endDate": "2026-09-04",
+    "notes": "C116 band room, music wing",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-29",
+    "title": "Homecoming Football Game (Huron)",
+    "startDate": "2026-09-18",
+    "endDate": "2026-09-18",
+    "notes": "C116 band room",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-30",
+    "title": "Homecoming Parade",
+    "startDate": "2026-09-18",
+    "endDate": "2026-09-18",
+    "notes": "C116 band room",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-31",
+    "title": "Home Football Game (Dexter)",
+    "startDate": "2026-10-09",
+    "endDate": "2026-10-09",
+    "notes": "C116 band room · After game: Red Robin (Briarwood Circle) fundraiser all day dine-in/to-go (20%)",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-32",
+    "title": "Home Football Game (Flint Powers) (Side by Side)",
+    "startDate": "2026-10-16",
+    "endDate": "2026-10-16",
+    "notes": "C116 band room",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-33",
+    "title": "Home Football Game (Brooklyn Columbia)",
+    "startDate": "2026-10-23",
+    "endDate": "2026-10-23",
+    "notes": "C116 band room",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-34",
+    "title": "Marching Band Banquet",
+    "startDate": "2026-11-04",
+    "endDate": "2026-11-04",
+    "notes": "Commons · 7:00pm",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-35",
+    "title": "Band Winter Concert",
+    "startDate": "2026-12-02",
+    "endDate": "2026-12-02",
+    "notes": "Skyline Auditorium · 7:00pm",
+    "tags": [
+      "marching",
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-36",
+    "title": "MSBOA Band Festival",
+    "startDate": "2027-03-06",
+    "endDate": "2027-03-06",
+    "notes": "Pioneer HS",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-37",
+    "title": "Bands in Review (Skyline, Forsythe, A2Steam)",
+    "startDate": "2027-03-16",
+    "endDate": "2027-03-16",
+    "notes": "Skyline Auditorium, Band Room, Choir Room, Orchestra Room",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "soccer-75",
+    "title": "Hairspot Fundraiser (final of season)",
+    "startDate": "2026-10-29",
+    "endDate": "2026-10-29",
+    "notes": "The Hairspot · haircuts 5:00–7:00pm; all proceeds to Skyline Soccer",
+    "tags": [
+      "jvb"
+    ],
+    "source": "Sky Soccer"
+  },
+  {
+    "id": "band-38",
+    "title": "Marching Band Rehearsal",
+    "startDate": "2026-10-14",
+    "endDate": "2026-10-14",
+    "notes": "6:00–9:00pm · be ready in band room by 5:45pm",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-39",
+    "title": "MSBOA All State auditions (Saline HS)",
+    "startDate": "2026-10-24",
+    "endDate": "2026-10-25",
+    "notes": "Saline High School",
+    "tags": [
+      "marching",
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-40",
+    "title": "Marching Band Pictures (during 1st hour)",
+    "startDate": "2026-10-26",
+    "endDate": "2026-10-28",
+    "notes": "Bring MB uniforms",
+    "tags": [
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-41",
+    "title": "Arts Benefit and Collage Concert (Symphony Band + chamber)",
+    "startDate": "2027-02-10",
+    "endDate": "2027-02-10",
+    "notes": "Skyline Auditorium · 7:00pm",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-42",
+    "title": "Picnic Pops (Varsity / Concert / Symphony)",
+    "startDate": "2027-05-23",
+    "endDate": "2027-05-23",
+    "notes": "Outside at Pioneer · 12:00–5:00pm",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-43",
+    "title": "VPAA Awards Night & Reception (mandatory)",
+    "startDate": "2027-06-02",
+    "endDate": "2027-06-02",
+    "notes": "Skyline Auditorium · 7:00pm (graded event)",
+    "tags": [
+      "symphony",
+      "marching"
+    ],
+    "source": "Skyline Band"
+  },
+  {
+    "id": "band-44",
+    "title": "Skyline Graduation (Symphony Band)",
+    "startDate": "2027-06-12",
+    "endDate": "2027-06-12",
+    "notes": "EMU Convocation Center · 7:00pm",
+    "tags": [
+      "symphony"
+    ],
+    "source": "Skyline Band"
+  }
+];
+
+    const MONTH_NAMES = [
+      "一月 January", "二月 February", "三月 March", "四月 April",
+      "五月 May", "六月 June", "七月 July", "八月 August",
+      "九月 September", "十月 October", "十一月 November", "十二月 December"
+    ];
+
+    const TAG_LABELS = {
+      all: "全区 All",
+      hs: "高中 HS",
+      grade10: "10 年级",
+      jvb: "JV-B",
+      marching: "Marching",
+      symphony: "Symphony"
+    };
+
+    const state = {
+      year: 2026,
+      month: 7, // August 2026 — prefer 2026 soccer season + school year
+      selected: "2026-08-31",
+      filter: "all",
+      sources: new Set(["AAPS", "Sky Soccer", "Skyline Band"]),
+      view: "month"
+    };
+
+    function parseYMD(s) {
+      const [y, m, d] = s.split("-").map(Number);
+      return new Date(y, m - 1, d);
+    }
+
+    function formatYMD(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return y + "-" + m + "-" + d;
+    }
+
+    function formatDisplayDate(start, end) {
+      const opts = { year: "numeric", month: "short", day: "numeric" };
+      const a = parseYMD(start).toLocaleDateString("zh-CN", opts);
+      if (!end || start === end) return a;
+      const b = parseYMD(end).toLocaleDateString("zh-CN", opts);
+      return a + " – " + b;
+    }
+
+    function sourceClass(source) {
+      if (source === "Sky Soccer") return "soccer";
+      if (source === "Skyline Band") return "band";
+      return "school";
+    }
+
+    function chipClass(ev) {
+      const sc = sourceClass(ev.source);
+      return sc + (ev.tags.includes("grade10") ? " grade10" : "");
+    }
+
+    function matchesFilter(ev) {
+      if (!state.sources.has(ev.source)) return false;
+      if (state.filter === "all") return true;
+      return ev.tags.includes(state.filter);
+    }
+
+    function eventsOnDate(ymd) {
+      const day = parseYMD(ymd);
+      return EVENTS.filter(function (ev) {
+        if (!matchesFilter(ev)) return false;
+        const s = parseYMD(ev.startDate);
+        const e = parseYMD(ev.endDate || ev.startDate);
+        return day >= s && day <= e;
+      }).sort(function (a, b) {
+        const order = { AAPS: 0, "Sky Soccer": 1, "Skyline Band": 2 };
+        const oa = order[a.source] != null ? order[a.source] : 9;
+        const ob = order[b.source] != null ? order[b.source] : 9;
+        const pa = a.tags.includes("grade10") ? 0 : 1;
+        const pb = b.tags.includes("grade10") ? 0 : 1;
+        return oa - ob || pa - pb || a.title.localeCompare(b.title);
+      });
+    }
+
+    function filteredEventsSorted() {
+      return EVENTS.filter(matchesFilter).slice().sort(function (a, b) {
+        return a.startDate.localeCompare(b.startDate) || a.title.localeCompare(b.title);
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderEventCard(ev) {
+      const sc = sourceClass(ev.source);
+      const g10 = ev.tags.includes("grade10") ? " grade10" : "";
+      const tagsHtml = ev.tags.map(function (t) {
+        const label = TAG_LABELS[t] || t;
+        return '<span class="tag ' + t + '">' + label + "</span>";
+      }).join("") +
+        '<span class="tag source source-' + sc + '">' + escapeHtml(ev.source) + "</span>";
+
+      return (
+        '<article class="event-card ' + sc + g10 + '">' +
+          "<h4>" + escapeHtml(ev.title) + "</h4>" +
+          '<div class="event-meta">' + tagsHtml + "</div>" +
+          '<p class="event-date">' + formatDisplayDate(ev.startDate, ev.endDate) + "</p>" +
+          (ev.notes ? '<p class="event-note">' + escapeHtml(ev.notes) + "</p>" : "") +
+        "</article>"
+      );
+    }
+
+    function renderMonth() {
+      const title = MONTH_NAMES[state.month] + " " + state.year;
+      document.getElementById("monthTitle").textContent = title;
+
+      const first = new Date(state.year, state.month, 1);
+      const startPad = first.getDay();
+      const gridStart = new Date(state.year, state.month, 1 - startPad);
+      const todayStr = formatYMD(new Date());
+
+      const grid = document.getElementById("daysGrid");
+      grid.innerHTML = "";
+
+      for (let i = 0; i < 42; i++) {
+        const d = new Date(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate() + i);
+        const ymd = formatYMD(d);
+        const inMonth = d.getMonth() === state.month;
+        const evs = eventsOnDate(ymd);
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "day" +
+          (inMonth ? "" : " other") +
+          (ymd === todayStr ? " today" : "") +
+          (ymd === state.selected ? " selected" : "");
+        cell.setAttribute("aria-label", ymd);
+
+        let chips = "";
+        const show = evs.slice(0, 2);
+        show.forEach(function (ev) {
+          chips += '<div class="ev-chip ' + chipClass(ev) + '">' + escapeHtml(ev.title) + "</div>";
+        });
+        if (evs.length > 2) {
+          chips += '<div class="more">+' + (evs.length - 2) + " more</div>";
+        }
+
+        cell.innerHTML = '<div class="num">' + d.getDate() + '</div><div class="chips">' + chips + "</div>";
+        cell.addEventListener("click", function () {
+          state.selected = ymd;
+          renderMonth();
+          renderDetail();
+        });
+        grid.appendChild(cell);
+      }
+    }
+
+    function renderDetail() {
+      const ymd = state.selected;
+      const d = parseYMD(ymd);
+      const title = d.toLocaleDateString("zh-CN", {
+        year: "numeric", month: "long", day: "numeric", weekday: "long"
+      });
+      document.getElementById("detailTitle").textContent = title;
+      document.getElementById("detailSub").textContent = ymd;
+
+      const evs = eventsOnDate(ymd);
+      const body = document.getElementById("detailBody");
+      if (!evs.length) {
+        body.innerHTML = '<div class="empty">这一天没有匹配的日程 · No events</div>';
+        return;
+      }
+      body.innerHTML = evs.map(renderEventCard).join("");
+    }
+
+    function renderList() {
+      const list = filteredEventsSorted();
+      const body = document.getElementById("listBody");
+      if (!list.length) {
+        body.innerHTML = '<div class="empty">当前筛选下没有事件</div>';
+        return;
+      }
+
+      let html = "";
+      let lastKey = "";
+      list.forEach(function (ev) {
+        const key = ev.startDate.slice(0, 7);
+        if (key !== lastKey) {
+          lastKey = key;
+          const [y, m] = key.split("-");
+          html += '<div class="list-month">' + MONTH_NAMES[Number(m) - 1] + " " + y + "</div>";
+        }
+        html += '<div class="list-item">' + renderEventCard(ev) + "</div>";
+      });
+      body.innerHTML = html;
+    }
+
+    function updateStats() {
+      const aaps = EVENTS.filter(function (e) { return e.source === "AAPS"; }).length;
+      const soccer = EVENTS.filter(function (e) { return e.source === "Sky Soccer"; }).length;
+      const band = EVENTS.filter(function (e) { return e.source === "Skyline Band"; }).length;
+      const visible = filteredEventsSorted().length;
+      document.getElementById("statsNote").textContent =
+        "共 " + EVENTS.length + " 条（AAPS " + aaps + " · Soccer JV-B " + soccer +
+        " · Band " + band + "）· 当前筛选显示 " + visible + " 条 · 可离线打开";
+    }
+
+    function refresh() {
+      renderMonth();
+      renderDetail();
+      if (state.view === "list") renderList();
+      updateStats();
+    }
+
+    function setView(view) {
+      state.view = view;
+      document.querySelectorAll(".view-toggle button").forEach(function (btn) {
+        btn.classList.toggle("active", btn.dataset.view === view);
+      });
+      const monthEl = document.getElementById("monthView");
+      const listEl = document.getElementById("listView");
+      if (view === "month") {
+        monthEl.classList.remove("hidden");
+        listEl.classList.remove("active");
+      } else {
+        monthEl.classList.add("hidden");
+        listEl.classList.add("active");
+        renderList();
+      }
+    }
+
+    function bind() {
+      document.getElementById("prevMonth").addEventListener("click", function () {
+        state.month -= 1;
+        if (state.month < 0) { state.month = 11; state.year -= 1; }
+        renderMonth();
+      });
+      document.getElementById("nextMonth").addEventListener("click", function () {
+        state.month += 1;
+        if (state.month > 11) { state.month = 0; state.year += 1; }
+        renderMonth();
+      });
+      document.getElementById("goToday").addEventListener("click", function () {
+        const now = new Date();
+        state.year = now.getFullYear();
+        state.month = now.getMonth();
+        state.selected = formatYMD(now);
+        // Prefer 2026 window when "today" is far outside the curated span
+        const t = state.selected;
+        if (t < "2025-08-01" || t > "2027-06-30") {
+          state.year = 2026;
+          state.month = 7;
+          state.selected = "2026-08-31";
+        }
+        refresh();
+      });
+
+      document.querySelectorAll(".source-filters .chip, .source-bar .chip").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const src = btn.dataset.source;
+          if (state.sources.has(src)) {
+            if (state.sources.size === 1) return; // keep at least one
+            state.sources.delete(src);
+            btn.classList.remove("active");
+          } else {
+            state.sources.add(src);
+            btn.classList.add("active");
+          }
+          refresh();
+        });
+      });
+
+      document.querySelectorAll(".filters .chip").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          state.filter = btn.dataset.filter;
+          document.querySelectorAll(".filters .chip").forEach(function (c) {
+            c.classList.toggle("active", c === btn);
+          });
+          refresh();
+        });
+      });
+
+      document.querySelectorAll(".view-toggle button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          setView(btn.dataset.view);
+        });
+      });
+    }
+
+    bind();
+    refresh();
+
+    window.CalendarApp = {
+      events: EVENTS,
+      addEvents: function (more) {
+        more.forEach(function (e) { EVENTS.push(e); });
+        refresh();
+      }
+    };
+  </script>
+</body>
+</html>
