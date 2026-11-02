@@ -597,2009 +597,1978 @@
 
     /** @type {CalEvent[]} */
     const EVENTS = [
-  {
-    "id": "aaps-1",
-    "title": "First Day for Students - Half Day",
-    "startDate": "2026-08-31",
-    "endDate": "2026-08-31",
-    "notes": "学生开学第一天（半天）",
-    "tags": [
-      "all",
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-2",
-    "title": "No School — Labor Day",
-    "startDate": "2026-09-04",
-    "endDate": "2026-09-07",
-    "notes": "劳工节假期",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-3",
-    "title": "No School for Students; Staff PD",
-    "startDate": "2026-09-28",
-    "endDate": "2026-09-28",
-    "notes": "学生不上学；教职工专业发展日",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-4",
-    "title": "Student Count Day",
-    "startDate": "2026-10-07",
-    "endDate": "2026-10-07",
-    "notes": "学生人数统计日",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-5",
-    "title": "Late Start for 10th (11th PSAT/NMSQT)",
-    "startDate": "2026-10-08",
-    "endDate": "2026-10-08",
-    "notes": "Late start for 9th, 10th & 12th · 10/11/12 年级晚到；11 年级 PSAT/NMSQT",
-    "tags": [
-      "grade10",
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-6",
-    "title": "No School — Early Fall Break",
-    "startDate": "2026-10-09",
-    "endDate": "2026-10-12",
-    "notes": "早秋假期",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-7",
-    "title": "High School Full Day (Elem/MS half day for report writing)",
-    "startDate": "2026-10-30",
-    "endDate": "2026-10-30",
-    "notes": "高中全日上课；小学/初中半天（写评语）",
-    "tags": [
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-8",
-    "title": "No School — Election Day",
-    "startDate": "2026-11-03",
-    "endDate": "2026-11-03",
-    "notes": "选举日放假",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-9",
-    "title": "No School — Thanksgiving Break",
-    "startDate": "2026-11-25",
-    "endDate": "2026-11-27",
-    "notes": "感恩节假期",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-10",
-    "title": "No School for Students; Staff PD",
-    "startDate": "2026-12-09",
-    "endDate": "2026-12-09",
-    "notes": "学生不上学；教职工专业发展日",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-11",
-    "title": "No School — Winter Break",
-    "startDate": "2026-12-21",
-    "endDate": "2027-01-01",
-    "notes": "寒假",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-12",
-    "title": "School Resumes",
-    "startDate": "2027-01-04",
-    "endDate": "2027-01-04",
-    "notes": "开学复课",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-13",
-    "title": "No School — MLK Day",
-    "startDate": "2027-01-18",
-    "endDate": "2027-01-18",
-    "notes": "马丁·路德·金纪念日",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-14",
-    "title": "Student Count Day",
-    "startDate": "2027-02-10",
-    "endDate": "2027-02-10",
-    "notes": "学生人数统计日",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-15",
-    "title": "No School — Mid-Winter Break",
-    "startDate": "2027-02-12",
-    "endDate": "2027-02-15",
-    "notes": "仲冬假期",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-16",
-    "title": "High School Full Day (Elem/MS half day)",
-    "startDate": "2027-03-09",
-    "endDate": "2027-03-09",
-    "notes": "高中全日；小学/初中半天",
-    "tags": [
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-17",
-    "title": "No School — Spring Break",
-    "startDate": "2027-03-26",
-    "endDate": "2027-04-02",
-    "notes": "春假",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-18",
-    "title": "Late Start for 10th (PSAT 8/9; WorkKeys 11)",
-    "startDate": "2027-04-08",
-    "endDate": "2027-04-08",
-    "notes": "10 年级晚到；PSAT 8/9 与 11 年级 WorkKeys",
-    "tags": [
-      "grade10",
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-19",
-    "title": "PSAT for 10th Grade (also SAT 11th; late start 9 & 12)",
-    "startDate": "2027-04-14",
-    "endDate": "2027-04-14",
-    "notes": "PSAT/SAT Testing 10th & 11th · 10 年级 PSAT；11 年级 SAT；9/12 晚到",
-    "tags": [
-      "grade10",
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-20",
-    "title": "Half Day for High School (8th Grade Transition Day)",
-    "startDate": "2027-04-26",
-    "endDate": "2027-04-26",
-    "notes": "高中半天（八年级过渡日）",
-    "tags": [
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-21",
-    "title": "No School for Students; Staff PD — Election Day",
-    "startDate": "2027-05-04",
-    "endDate": "2027-05-04",
-    "notes": "选举日；学生不上学；教职工专业发展",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-22",
-    "title": "High School Full Day (Elem/K-8 half day)",
-    "startDate": "2027-05-13",
-    "endDate": "2027-05-13",
-    "notes": "高中全日；小学/K-8 半天",
-    "tags": [
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-23",
-    "title": "No School — Memorial Day",
-    "startDate": "2027-05-31",
-    "endDate": "2027-05-31",
-    "notes": "阵亡将士纪念日",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-24",
-    "title": "High School Final Exams",
-    "startDate": "2027-06-11",
-    "endDate": "2027-06-12",
-    "notes": "高中期末考试 · specific days/schedule vary by school",
-    "tags": [
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-24b",
-    "title": "High School Final Exams",
-    "startDate": "2027-06-14",
-    "endDate": "2027-06-16",
-    "notes": "高中期末考试 · specific days/schedule vary by school",
-    "tags": [
-      "hs"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "aaps-25",
-    "title": "Last Day of School — Half Day",
-    "startDate": "2027-06-16",
-    "endDate": "2027-06-16",
-    "notes": "学年最后一天（半天）",
-    "tags": [
-      "all"
-    ],
-    "source": "AAPS"
-  },
-  {
-    "id": "soccer-1",
-    "title": "JV-A Practice",
-    "startDate": "2025-08-18",
-    "endDate": "2025-08-18",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-2",
-    "title": "JV-A Practice",
-    "startDate": "2025-08-19",
-    "endDate": "2025-08-19",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-3",
-    "title": "JV-A Practice",
-    "startDate": "2025-08-20",
-    "endDate": "2025-08-20",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-4",
-    "title": "JV-A vs. Dexter (H)",
-    "startDate": "2025-08-21",
-    "endDate": "2025-08-21",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-5",
-    "title": "JV-A Practice",
-    "startDate": "2025-08-22",
-    "endDate": "2025-08-22",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-6",
-    "title": "JV-A Practice (Track Field)",
-    "startDate": "2025-08-22",
-    "endDate": "2025-08-22",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-7",
-    "title": "JV-A @ Melvindale (A) (3:30 BUS)",
-    "startDate": "2025-08-25",
-    "endDate": "2025-08-25",
-    "notes": "5:30 PM–7:00 PM · Julian O. Strong Middle School, 18656 Prospect St, Melvindale, MI 48122, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-8",
-    "title": "JV-A @ Temperance Bedford (A) (3:45 BUS)",
-    "startDate": "2025-08-26",
-    "endDate": "2025-08-26",
-    "notes": "5:30 PM–7:00 PM · Bedford High School, 8285 Jackman Rd, Temperance, MI 48182, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-9",
-    "title": "JV-A Practice",
-    "startDate": "2025-08-27",
-    "endDate": "2025-08-27",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-10",
-    "title": "JV-A vs. Saline (H)",
-    "startDate": "2025-08-28",
-    "endDate": "2025-08-28",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-11",
-    "title": "JV-A: RISE",
-    "startDate": "2025-09-01",
-    "endDate": "2025-09-01",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-12",
-    "title": "JV-A @ Pioneer (A)",
-    "startDate": "2025-09-02",
-    "endDate": "2025-09-02",
-    "notes": "5:30 PM–7:00 PM · Pioneer High School, 601 W Stadium Blvd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-13",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-03",
-    "endDate": "2025-09-03",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-14",
-    "title": "JV-A @ Monroe (A) (3:45 BUS)",
-    "startDate": "2025-09-04",
-    "endDate": "2025-09-04",
-    "notes": "5:30 PM–7:00 PM · Monroe High School, 901 Herr Rd, Monroe, MI 48161, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-15",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-05",
-    "endDate": "2025-09-05",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-16",
-    "title": "JV-A @ Salem (A) (4:00 BUS)",
-    "startDate": "2025-09-08",
-    "endDate": "2025-09-08",
-    "notes": "5:30 PM–7:00 PM · PCEP Varsity Football Field/Track, N Canton Center Rd, Canton Township, MI 48187, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-17",
-    "title": "JV-A vs. Huron (H)",
-    "startDate": "2025-09-09",
-    "endDate": "2025-09-09",
-    "notes": "4:00 PM–5:30 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-18",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-10",
-    "endDate": "2025-09-10",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-19",
-    "title": "JV-A: RISE (Room A-115)",
-    "startDate": "2025-09-10",
-    "endDate": "2025-09-10",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-20",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-11",
-    "endDate": "2025-09-11",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-21",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-12",
-    "endDate": "2025-09-12",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-22",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-15",
-    "endDate": "2025-09-15",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-23",
-    "title": "JV-A Practice (Pizza Team Dinner after at Stadium)",
-    "startDate": "2025-09-15",
-    "endDate": "2025-09-15",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-24",
-    "title": "JV-A: RISE",
-    "startDate": "2025-09-15",
-    "endDate": "2025-09-15",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-25",
-    "title": "JV-A @ Dexter (A)",
-    "startDate": "2025-09-16",
-    "endDate": "2025-09-16",
-    "notes": "4:00 PM–5:30 PM · Dexter High School, 2200 N Parker Rd, Dexter, MI 48130, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-26",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-17",
-    "endDate": "2025-09-17",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-27",
-    "title": "JV-A vs. Temperance Bedford (H)",
-    "startDate": "2025-09-18",
-    "endDate": "2025-09-18",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-28",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-19",
-    "endDate": "2025-09-19",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-29",
-    "title": "JV-A vs. Northville (H)",
-    "startDate": "2025-09-22",
-    "endDate": "2025-09-22",
-    "notes": "4:00 PM–5:30 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-30",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-23",
-    "endDate": "2025-09-23",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-31",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-24",
-    "endDate": "2025-09-24",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-32",
-    "title": "JV-A Team Dinner (Gergics House)",
-    "startDate": "2025-09-24",
-    "endDate": "2025-09-24",
-    "notes": "7:00 PM–8:30 PM · 316 Honey Tree Wy, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-33",
-    "title": "JV-A: RISE",
-    "startDate": "2025-09-24",
-    "endDate": "2025-09-24",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-34",
-    "title": "JV-A vs. Pioneer (H)",
-    "startDate": "2025-09-25",
-    "endDate": "2025-09-25",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-35",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-26",
-    "endDate": "2025-09-26",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-36",
-    "title": "JV-A Practice",
-    "startDate": "2025-09-29",
-    "endDate": "2025-09-29",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-37",
-    "title": "JV-A vs. Monroe (H)",
-    "startDate": "2025-09-30",
-    "endDate": "2025-09-30",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-38",
-    "title": "JV-A Practice",
-    "startDate": "2025-10-01",
-    "endDate": "2025-10-01",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-39",
-    "title": "JV-A Practice",
-    "startDate": "2025-10-02",
-    "endDate": "2025-10-02",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-40",
-    "title": "JV-A @ Novi (A) (3:45 PM BUS)",
-    "startDate": "2025-10-06",
-    "endDate": "2025-10-06",
-    "notes": "5:30 PM–7:00 PM · Novi Meadows Stadium, 45825 W 11 Mile Rd, Novi, MI 48374, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-41",
-    "title": "JV-A @ Huron (A)",
-    "startDate": "2025-10-07",
-    "endDate": "2025-10-07",
-    "notes": "5:30 PM–7:00 PM · Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-42",
-    "title": "JV-A Practice",
-    "startDate": "2025-10-08",
-    "endDate": "2025-10-08",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-43",
-    "title": "JV-A: RISE",
-    "startDate": "2025-10-08",
-    "endDate": "2025-10-08",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-44",
-    "title": "JV-A: RISE",
-    "startDate": "2025-10-10",
-    "endDate": "2025-10-10",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-45",
-    "title": "JV-A: RISE",
-    "startDate": "2025-10-15",
-    "endDate": "2025-10-15",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-46",
-    "title": "JV-A: RISE",
-    "startDate": "2025-10-20",
-    "endDate": "2025-10-20",
-    "notes": "3:30 PM–4:15 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-47",
-    "title": "JV-A @ Dewitt (Scrimmage) Field 3",
-    "startDate": "2026-08-13",
-    "endDate": "2026-08-13",
-    "notes": "10:00 AM–11:00 AM · East Lansing Soccer Complex, 3700 Coleman Rd, East Lansing, MI 48823, USA · Ann Arbor Skyline vs Mason",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-48",
-    "title": "JV-A Practice",
-    "startDate": "2026-08-14",
-    "endDate": "2026-08-14",
-    "notes": "5:00 PM–5:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-49",
-    "title": "JV-A @ Independence Park Field 11 (Scrimmage)",
-    "startDate": "2026-08-15",
-    "endDate": "2026-08-15",
-    "notes": "11:20 AM–12:20 PM · Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA · Skyline vs Salem",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-50",
-    "title": "JV-A @ Independence Park Field 3 (Scrimmage)",
-    "startDate": "2026-08-15",
-    "endDate": "2026-08-15",
-    "notes": "8:50 AM–9:50 AM · Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA · Skyline vs Canton",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-51",
-    "title": "JV-A @ Independence Park Field 5 (Scrimmage)",
-    "startDate": "2026-08-15",
-    "endDate": "2026-08-15",
-    "notes": "1:50 PM–2:50 PM · Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA · Skyline vs Plymouth",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-52",
-    "title": "JV-A Practice",
-    "startDate": "2026-08-17",
-    "endDate": "2026-08-17",
-    "notes": "5:00 PM–7:00 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-53",
-    "title": "JV-A vs. Greenhills (Scrimmage) 4:30 arrival for warm-up",
-    "startDate": "2026-08-18",
-    "endDate": "2026-08-18",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-54",
-    "title": "JV-A Practice @ Track Field",
-    "startDate": "2026-08-19",
-    "endDate": "2026-08-19",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-55",
-    "title": "JV-A Practice (Track Field)",
-    "startDate": "2026-08-20",
-    "endDate": "2026-08-20",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-56",
-    "title": "JV-A Practice (Track Field)",
-    "startDate": "2026-08-21",
-    "endDate": "2026-08-21",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-57",
-    "title": "JV-A Practice - Stadium",
-    "startDate": "2026-08-24",
-    "endDate": "2026-08-24",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-58",
-    "title": "JV-A @ Dexter 3pm arrival for warm-up",
-    "startDate": "2026-08-25",
-    "endDate": "2026-08-25",
-    "notes": "4:00 PM–5:30 PM · Dexter High School, 2200 N Parker Rd, Dexter, MI 48130, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-59",
-    "title": "JV-A Practice TIME CHANGE! @ Track",
-    "startDate": "2026-08-26",
-    "endDate": "2026-08-26",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-60",
-    "title": "JV-A vs. Bedford 4:30pm arrival for warm-up",
-    "startDate": "2026-08-27",
-    "endDate": "2026-08-27",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-61",
-    "title": "JV-A Practice - Stadium",
-    "startDate": "2026-08-28",
-    "endDate": "2026-08-28",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-62",
-    "title": "JV-A - Team Dinner following practice @ Smith's House",
-    "startDate": "2026-08-31",
-    "endDate": "2026-08-31",
-    "notes": "5:30 PM–7:30 PM · 3316 The Glade St, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-63",
-    "title": "JV-A Practice @ Track",
-    "startDate": "2026-08-31",
-    "endDate": "2026-08-31",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-64",
-    "title": "CANCELLED — JV-A @ Saline (heat)",
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-01",
-    "notes": "5:30 PM–7:00 PM · Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA · Cancelled due to 118°F field temp (email 2026-09-01). No JV-A/JV-B outdoor practice that day either.",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer",
-    "priorTitle": "JV-A @ Saline 4:30pm arrival for warm-up",
-    "priorNotes": "5:30 PM–7:00 PM · Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA",
-    "cancelled": true
-  },
-  {
-    "id": "soccer-65",
-    "title": "JV-A Practice @ Stadium",
-    "startDate": "2026-09-02",
-    "endDate": "2026-09-02",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-66",
-    "title": "JV-A vs. Pioneer 4:30pm arrival for warm-up",
-    "startDate": "2026-09-03",
-    "endDate": "2026-09-03",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-67",
-    "title": "JV-A TBD",
-    "startDate": "2026-09-04",
-    "endDate": "2026-09-04",
-    "notes": "6:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-68",
-    "title": "JVA and JVB TBD",
-    "startDate": "2026-09-07",
-    "endDate": "2026-09-07",
-    "notes": "",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-69",
-    "title": "JV-A vs. Monroe 4:30pm arrival for warm-up",
-    "startDate": "2026-09-08",
-    "endDate": "2026-09-08",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-70",
-    "title": "JV-A Practice @ track",
-    "startDate": "2026-09-09",
-    "endDate": "2026-09-09",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-71",
-    "title": "JV A- Practice @stadium",
-    "startDate": "2026-09-11",
-    "endDate": "2026-09-11",
-    "notes": "6:00 PM–7:00 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-72",
-    "title": "JV-A vs. Salem 4:30pm arrival for warm-up",
-    "startDate": "2026-09-14",
-    "endDate": "2026-09-14",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-73",
-    "title": "JV-A Practice @ Stadium",
-    "startDate": "2026-09-15",
-    "endDate": "2026-09-15",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-74",
-    "title": "JV-A practice @ stadium",
-    "startDate": "2026-09-16",
-    "endDate": "2026-09-16",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-75",
-    "title": "JV-A vs. Dexter 4:30pm arrival for warm-up",
-    "startDate": "2026-09-17",
-    "endDate": "2026-09-17",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-76",
-    "title": "JV-A @ Northville 10am arrival for warm up",
-    "startDate": "2026-09-19",
-    "endDate": "2026-09-19",
-    "notes": "11:00 AM–12:30 PM · Northville High School, 45700 Six Mile Rd, Northville, MI 48168, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-77",
-    "title": "JV-A practice @ Stadium",
-    "startDate": "2026-09-21",
-    "endDate": "2026-09-21",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-78",
-    "title": "JV-A @ Bedford 4:30pm arrival for warm-up",
-    "startDate": "2026-09-22",
-    "endDate": "2026-09-22",
-    "notes": "5:30 PM–7:00 PM · Bedford High School, 8285 Jackman Rd, Temperance, MI 48182, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-79",
-    "title": "V and JV-A bus departure @ 3:30",
-    "startDate": "2026-09-22",
-    "endDate": "2026-09-22",
-    "notes": "3:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-80",
-    "title": "JV-A Practice @ Stadium",
-    "startDate": "2026-09-23",
-    "endDate": "2026-09-23",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-81",
-    "title": "JV-A vs. Saline 4:30pm arrival for warm-up",
-    "startDate": "2026-09-24",
-    "endDate": "2026-09-24",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-82",
-    "title": "JV-A practice @ Stadium",
-    "startDate": "2026-09-25",
-    "endDate": "2026-09-25",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-83",
-    "title": "JV-A Dinner @ the field organized by the Bednars",
-    "startDate": "2026-09-28",
-    "endDate": "2026-09-28",
-    "notes": "7:30 PM–8:30 PM · Skyline High School",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-84",
-    "title": "JV-A Practice @ track",
-    "startDate": "2026-09-28",
-    "endDate": "2026-09-28",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-85",
-    "title": "JV-A @ Pioneer 4:30pm arrival for warm-up",
-    "startDate": "2026-09-29",
-    "endDate": "2026-09-29",
-    "notes": "5:30 PM–7:00 PM · Pioneer High School, 601 W Stadium Blvd, Ann Arbor, MI 48103, USA · No bussing to/from this game (email week of 9/28)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-86",
-    "title": "JV-A practice @ Track",
-    "startDate": "2026-09-30",
-    "endDate": "2026-09-30",
-    "notes": "6:00 PM–7:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-87",
-    "title": "JV-A vs. Monroe 4:30pm arrival for warm-up",
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-01",
-    "notes": "5:30 PM–7:00 PM · Monroe High School, 901 Herr Rd, Monroe, MI 48161, USA · Away @ Monroe; warm-up arrival 4:30 PM (calendar)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-88",
-    "title": "JVA and JVB bus departure - return after JVA game",
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-01",
-    "notes": "2:15 PM · All JV early release 2:00 PM; JV bus departs 2:15 PM; returns after JV-A game (email week of 9/28)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-89",
-    "title": "JV-A practice @ Stadium",
-    "startDate": "2026-10-02",
-    "endDate": "2026-10-02",
-    "notes": "5:30 PM–7:00 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-90",
-    "title": "JV-A v Pioneer 9:30 warmup",
-    "startDate": "2026-10-03",
-    "endDate": "2026-10-03",
-    "notes": "10:30 AM–12:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-91",
-    "title": "JV-A Dinner @ Chizek's House",
-    "startDate": "2026-10-05",
-    "endDate": "2026-10-05",
-    "notes": "6:30 PM–8:30 PM · 853 S Zeeb Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-92",
-    "title": "JV-A practice @ Stadium",
-    "startDate": "2026-10-05",
-    "endDate": "2026-10-05",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-93",
-    "title": "JV-A vs. Huron 4:30pm arrival for warm-up",
-    "startDate": "2026-10-06",
-    "endDate": "2026-10-06",
-    "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-94",
-    "title": "JV-A practice @ Stadium",
-    "startDate": "2026-10-07",
-    "endDate": "2026-10-07",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "title": "MJR / U-M Depression Center presentation (JV-A & JV-B)",
-    "startDate": "2026-10-07",
-    "endDate": "2026-10-07",
-    "notes": "Skyline Library · 7:00 PM; players attend immediately after practice (email week of 10/5)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer",
-    "id": "soccer-95"
-  },
-  {
-    "id": "soccer-96",
-    "title": "JV-A practice @ Stadium",
-    "startDate": "2026-10-08",
-    "endDate": "2026-10-08",
-    "notes": "5:00 PM–6:30 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "title": "Concessions Fundraiser @ Home Football vs Dexter",
-    "startDate": "2026-10-09",
-    "endDate": "2026-10-09",
-    "notes": "Skyline stadium · begin 5:45 PM through game; players/parents from any team may volunteer (email week of 10/5)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer",
-    "id": "soccer-97"
-  },
-  {
-    "title": "No JV-A practice (Fall Break)",
-    "startDate": "2026-10-09",
-    "endDate": "2026-10-09",
-    "notes": "Confirmed: no JV-A practice on 10/9 (email weeks of 9/28 and 10/5)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer",
-    "priorTitle": "JV-A Practice (if scheduled)",
-    "cancelled": true,
-    "id": "soccer-98"
-  },
-  {
-    "id": "soccer-99",
-    "title": "JV-A @ Huron 4:30pm warmup",
-    "startDate": "2026-10-12",
-    "endDate": "2026-10-12",
-    "notes": "5:30 PM–7:00 PM · Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA · Confirmed away @ Huron HS (email 10/12 clarification; weekly email had incorrectly said home)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer",
-    "priorNotes": "Week-of email said: All three teams vs Huron at home",
-    "priorTitle": "JV-A vs. Huron (H) [email error]"
-  },
-  {
-    "id": "soccer-100",
-    "title": "JV-A Final Practice- stadium",
-    "startDate": "2026-10-13",
-    "endDate": "2026-10-13",
-    "notes": "5:00 PM–6:00 PM",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-  {
-    "id": "soccer-101",
-    "title": "JV-A @ Saline 4:15 arrival for warm-up (NO BUSSES)",
-    "startDate": "2026-10-14",
-    "endDate": "2026-10-14",
-    "notes": "5:15 PM–6:45 PM · Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA · JV-A and JV-B @ Saline; no bussing (email week of 10/12)",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
       {
-      "title": "The Hairspot Fundraiser (final of season)",
-      "startDate": "2026-10-29",
-      "endDate": "2026-10-29",
-      "notes": "The Hairspot · haircuts 5:00–7:00 PM; all proceeds to Skyline Soccer (final fundraiser of season) · bring as many patrons as you can (week-of 10/26 email)",
-      "tags": [
-        "jva"
-      ],
-      "source": "Sky Soccer",
-      "priorNotes": "The Hairspot · haircuts 5:00–7:00 PM; all proceeds to Skyline Soccer (program-wide)",
-      "id": "soccer-102"
-    },
-  {
-    "id": "soccer-103",
-    "title": "JV-A Final Banquet",
-    "startDate": "2026-11-05",
-    "endDate": "2026-11-05",
-    "notes": "6:00–9:00 PM · Coratti's Pizzeria Bar & Bocce, 512 E William St, Ann Arbor · private upstairs + bocce courts · coaches & players + up to 2 guests per player · RSVP via Google Form (link in 10/21 skysocmens email): https://docs.google.com/forms/d/e/1FAIpQLSdkvaI5RZ8YNerWtQyGtCZzJBtf0BZDQMUIh4po56PymFf2uw/viewform · pizza/pasta/salads/soft drinks; cash bar",
-    "priorNotes": "6:00–9:00 PM · Coratti's Pizzeria Bar & Bocce, 512 E William St, Ann Arbor · private upstairs + bocce courts · coaches & players + 2 guests · RSVP in GroupMe (Carolyn Smith / Kim Gardner) · pizza/pasta/salads/soft drinks; cash bar",
-    "tags": [
-      "jva"
-    ],
-    "source": "Sky Soccer"
-  },
-    {
-      "title": "SABC Donut Dash — soccer player volunteers needed",
-      "startDate": "2026-11-01",
-      "endDate": "2026-11-01",
-      "notes": "SABC Donut Dash · arrive at Skyline by 8:30 AM · need ≥3 soccer players at water stations (encourage runners / share water); more welcome · reply to skysocmens 10/30 volunteer email if interested · race registration code EAGLE10 through Oct 31 (runsignup / Family Update)",
-      "tags": [
-        "jva"
-      ],
-      "source": "Sky Soccer",
-      "priorNotes": "SABC Donut Dash · need ≥3 Skyline soccer players along the race (encourage runners / water stations); more welcome · reply to skysocmens week-of 10/26 email if interested · (Family Update also lists runsignup code EAGLE10 through Oct 31)",
-      "id": "soccer-104"
-    },
-  {
-    "id": "band-1",
-    "title": "SL & New Members Marching Rehearsal",
-    "startDate": "2025-08-05",
-    "endDate": "2025-08-05",
-    "notes": "C116 Band Room, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-2",
-    "title": "Band Camp",
-    "startDate": "2025-08-12",
-    "endDate": "2025-08-12",
-    "notes": "",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-3",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-08-27",
-    "endDate": "2025-08-27",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-4",
-    "title": "Home Football Game (Annapolis)",
-    "startDate": "2025-08-29",
-    "endDate": "2025-08-29",
-    "notes": "Band Room C116, Stadium",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-5",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-09-03",
-    "endDate": "2025-09-03",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-6",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-09-10",
-    "endDate": "2025-09-10",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-7",
-    "title": "Home Football Game (Monroe)",
-    "startDate": "2025-09-12",
-    "endDate": "2025-09-12",
-    "notes": "C116, Stadium",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-8",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-09-17",
-    "endDate": "2025-09-17",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-9",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-09-24",
-    "endDate": "2025-09-24",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-10",
-    "title": "Home Football Game (Bedford)",
-    "startDate": "2025-09-26",
-    "endDate": "2025-09-26",
-    "notes": "C116 Band Room, Stadium",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-11",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-10-01",
-    "endDate": "2025-10-01",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-12",
-    "title": "Homecoming Parade",
-    "startDate": "2025-10-03",
-    "endDate": "2025-10-03",
-    "notes": "C116 Band Room",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-13",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-10-08",
-    "endDate": "2025-10-08",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-14",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-10-15",
-    "endDate": "2025-10-15",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-15",
-    "title": "Home Football Game (Marlette)",
-    "startDate": "2025-10-17",
-    "endDate": "2025-10-17",
-    "notes": "C116 Band Room, Stadium",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-16",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2025-10-22",
-    "endDate": "2025-10-22",
-    "notes": "C116, Stadium, Grassy Knoll",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-17",
-    "title": "Home Football Game (Summit Academy) - CANCELLED",
-    "startDate": "2025-10-24",
-    "endDate": "2025-10-24",
-    "notes": "C116 Band, Stadium",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-18",
-    "title": "Marching Band Banquet",
-    "startDate": "2025-11-11",
-    "endDate": "2025-11-11",
-    "notes": "C116 Band Room, Commons",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-19",
-    "title": "Marching Band Banquet",
-    "startDate": "2025-12-16",
-    "endDate": "2025-12-16",
-    "notes": "Skyline Commons",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-20",
-    "title": "Band Winter Concert",
-    "startDate": "2026-01-14",
-    "endDate": "2026-01-14",
-    "notes": "C116, C104, C110, Auditorium",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-21",
-    "title": "VPAA Arts Benefit Performance",
-    "startDate": "2026-02-12",
-    "endDate": "2026-02-12",
-    "notes": "C116, Auditorium",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-22",
-    "title": "Bands in Review North",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-17",
-    "notes": "C116, C110, C104, C134, Auditorium",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-23",
-    "title": "Picnic Pops Concert 12-6pm",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
-    "notes": "@Pioneer",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-24",
-    "title": "Marching Band Section Leaders",
-    "startDate": "2026-08-10",
-    "endDate": "2026-08-10",
-    "notes": "C116 band room",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-25",
-    "title": "Marching Band Section Leaders and New Members",
-    "startDate": "2026-08-11",
-    "endDate": "2026-08-11",
-    "notes": "C116 band room, gym",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-26",
-    "title": "Skyline Band Camp",
-    "startDate": "2026-08-18",
-    "endDate": "2026-08-18",
-    "notes": "Interlochen Center for the Arts, 4000 J. Maddy Pkwy, Interlochen, MI 49643, USA",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-27",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2026-09-02",
-    "endDate": "2026-09-02",
-    "notes": "C116 band room, stadium",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-28",
-    "title": "Home Football Game (Saline)",
-    "startDate": "2026-09-04",
-    "endDate": "2026-09-04",
-    "notes": "C116 band room, music wing",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-29",
-    "title": "Homecoming Football Game (Huron)",
-    "startDate": "2026-09-18",
-    "endDate": "2026-09-18",
-    "notes": "C116 band room",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-30",
-    "title": "Homecoming Parade",
-    "startDate": "2026-09-18",
-    "endDate": "2026-09-18",
-    "notes": "C116 band room",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-31",
-    "title": "Home Football Game (Dexter)",
-    "startDate": "2026-10-09",
-    "endDate": "2026-10-09",
-    "notes": "C116 band room · After game: Red Robin (Briarwood Circle) fundraiser all day dine-in/to-go (20%)",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-    {
-    "id": "band-32",
-    "title": "Home Football Game (Flint Powers) (Side by Side)",
-    "startDate": "2026-10-16",
-    "endDate": "2026-10-16",
-    "notes": "C116 band room · Tailgate 4:15 PM (includes 8th graders for Side by Side) · After game: last Red Robin fundraiser (Briarwood Circle), dine-in/to-go 20% back to Marching Band",
-    "priorNotes": "C116 band room",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-    {
-    "id": "band-33",
-    "title": "Home Football Game (Brooklyn Columbia) — Senior Night",
-    "startDate": "2026-10-23",
-    "endDate": "2026-10-23",
-    "notes": "C116 band room · Senior Recognition Night · Tailgate 4:15pm — STILL NEED more parent volunteers (signup via Jason Smith 10/22 email link) · STILL NEED Senior Night ceremony photo-takers — contact Jen & Dan Sopoci (jdsopoci@gmail.com / daniel.sopoci@tetratech.com); videographer is set · Senior Survey was due Tue Oct 20 (escorts + 2 accomplishments) · After game: bonfire at Szcomaks on North Maple — RSVP https://evite.me/GgG64yzVQN (see band-48)",
-    "priorNotes": "C116 band room · Senior Recognition Night · Tailgate 4:15pm (volunteer signup via band email link) · Senior Survey was due Tue Oct 20 (escorts + 2 accomplishments) · After game: bonfire at Szcomaks on North Maple — RSVP https://evite.me/GgG64yzVQN (see band-48)",
-    "priorTitle": "Home Football Game (Brooklyn Columbia)",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-34",
-    "title": "Marching Band Banquet",
-    "startDate": "2026-11-04",
-    "endDate": "2026-11-04",
-    "notes": "Skyline Commons · 7:00pm · volunteer help or bring a treat via SignUpGenius (link in Jason Smith Announcements email 10/21)",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band",
-    "priorNotes": "Commons · 7:00pm"
-  },
-  {
-    "id": "band-35",
-    "title": "Band Winter Concert",
-    "startDate": "2026-12-02",
-    "endDate": "2026-12-02",
-    "notes": "Skyline Auditorium · 7:00pm",
-    "tags": [
-      "marching",
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-36",
-    "title": "MSBOA Band Festival",
-    "startDate": "2027-03-06",
-    "endDate": "2027-03-06",
-    "notes": "Pioneer HS",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-37",
-    "title": "Bands in Review (Skyline, Forsythe, A2Steam)",
-    "startDate": "2027-03-16",
-    "endDate": "2027-03-16",
-    "notes": "Skyline Auditorium, Band Room, Choir Room, Orchestra Room",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-38",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2026-10-14",
-    "endDate": "2026-10-14",
-    "notes": "6:00–9:00pm · be ready in band room by 5:45pm",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-39",
-    "title": "MSBOA All State auditions (Saline HS)",
-    "startDate": "2026-10-24",
-    "endDate": "2026-10-25",
-    "notes": "Saline High School · schedule on Schoology; write ID number on music",
-    "priorNotes": "Saline High School",
-    "tags": [
-      "marching",
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-40",
-    "title": "Marching Band Pictures (during 1st hour)",
-    "startDate": "2026-10-26",
-    "endDate": "2026-10-28",
-    "notes": "Mon group photo in stadium (1st hour); individual photos Tue–Wed · bring marching uniform + accessories (gloves, gauntlet, plume, etc.) · Memory Page Fundraiser coming weeks",
-    "priorNotes": "Bring MB uniforms",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-41",
-    "title": "Arts Benefit and Collage Concert (Symphony Band + chamber)",
-    "startDate": "2027-02-10",
-    "endDate": "2027-02-10",
-    "notes": "Skyline Auditorium · 7:00pm",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-42",
-    "title": "Picnic Pops (Varsity / Concert / Symphony)",
-    "startDate": "2027-05-23",
-    "endDate": "2027-05-23",
-    "notes": "Outside at Pioneer · 12:00–5:00pm",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-43",
-    "title": "VPAA Awards Night & Reception (mandatory)",
-    "startDate": "2027-06-02",
-    "endDate": "2027-06-02",
-    "notes": "Skyline Auditorium · 7:00pm (graded event)",
-    "tags": [
-      "symphony",
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-44",
-    "title": "Skyline Graduation (Symphony Band)",
-    "startDate": "2027-06-12",
-    "endDate": "2027-06-12",
-    "notes": "EMU Convocation Center · 7:00pm",
-    "tags": [
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-45",
-    "title": "Band Trip Parent Meeting",
-    "startDate": "2026-10-29",
-    "endDate": "2026-10-29",
-    "notes": "Orchestra Room · 7:00pm · next band trip (27–28 school year) and trip policy changes; open to ALL ensembles/grades; slides shared afterward if you cannot attend",
-    "tags": [
-      "marching",
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-46",
-    "title": "MSBOA Solo & Ensemble",
-    "startDate": "2027-02-06",
-    "endDate": "2027-02-06",
-    "notes": "Sat Feb 6 · register by Tue Oct 27 (form in Sky High Notes 10/25) · pay by check (SFA) or cash in envelope → Band Dropbox by Oct 27 · fees: $15 solo / $10 per person ensemble / $75 chamber (9–20)",
-    "priorNotes": "Franklin High School · registration deadline Tue Oct 27 (Schoology / form); solo or small ensemble (any mix of students)",
-    "tags": [
-      "marching",
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-47",
-    "title": "Marching Band Rehearsal",
-    "startDate": "2026-10-21",
-    "endDate": "2026-10-21",
-    "notes": "6:00–9:00pm · be ready in band room by 5:45pm · section leader meeting 5:30pm",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band"
-  },
-  {
-    "id": "band-48",
-    "title": "Bonfire after Senior Night game (Szcomaks)",
-    "startDate": "2026-10-23",
-    "endDate": "2026-10-23",
-    "notes": "After Brooklyn-Columbia Senior Night game · North Maple (½ mile south of North Territorial; dirt roads from Skyline or US-23 exit 49) · outdoor fireplace + field bonfire · bring chairs/blankets/instruments/glowsticks · hosts provide Costco pizza; snacks/drinks/s'mores welcome · whole family · RSVP Evite https://evite.me/GgG64yzVQN · Angie Wolney 248-515-4497 / Dennis Sczomak 248-515-6752",
-    "tags": [
-      "marching"
-    ],
-    "source": "Skyline Band",
-    "priorNotes": "After Brooklyn-Columbia home game · at the Szcomaks · students & parents welcome (replaces Red Robin)"
-  },
-  {
-    "id": "band-49",
-    "title": "SFA Booster Meeting (Zoom)",
-    "startDate": "2026-11-09",
-    "endDate": "2026-11-09",
-    "notes": "7:30pm via Zoom · Skyline Band Boosters (SFA)",
-    "tags": [
-      "marching",
-      "symphony"
-    ],
-    "source": "Skyline Band"
-  }
-];
-
-    const MONTH_NAMES = [
-      "一月 January", "二月 February", "三月 March", "四月 April",
-      "五月 May", "六月 June", "七月 July", "八月 August",
-      "九月 September", "十月 October", "十一月 November", "十二月 December"
+        "id": "aaps-1",
+        "title": "First Day for Students - Half Day",
+        "startDate": "2026-08-31",
+        "endDate": "2026-08-31",
+        "notes": "学生开学第一天（半天）",
+        "tags": [
+          "all",
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-2",
+        "title": "No School — Labor Day",
+        "startDate": "2026-09-04",
+        "endDate": "2026-09-07",
+        "notes": "劳工节假期",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-3",
+        "title": "No School for Students; Staff PD",
+        "startDate": "2026-09-28",
+        "endDate": "2026-09-28",
+        "notes": "学生不上学；教职工专业发展日",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-4",
+        "title": "Student Count Day",
+        "startDate": "2026-10-07",
+        "endDate": "2026-10-07",
+        "notes": "学生人数统计日",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-5",
+        "title": "Late Start for 10th (11th PSAT/NMSQT)",
+        "startDate": "2026-10-08",
+        "endDate": "2026-10-08",
+        "notes": "Late start for 9th, 10th & 12th · 10/11/12 年级晚到；11 年级 PSAT/NMSQT",
+        "tags": [
+          "grade10",
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-6",
+        "title": "No School — Early Fall Break",
+        "startDate": "2026-10-09",
+        "endDate": "2026-10-12",
+        "notes": "早秋假期",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-7",
+        "title": "High School Full Day (Elem/MS half day for report writing)",
+        "startDate": "2026-10-30",
+        "endDate": "2026-10-30",
+        "notes": "高中全日上课；小学/初中半天（写评语）",
+        "tags": [
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-8",
+        "title": "No School — Election Day",
+        "startDate": "2026-11-03",
+        "endDate": "2026-11-03",
+        "notes": "选举日放假",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-9",
+        "title": "No School — Thanksgiving Break",
+        "startDate": "2026-11-25",
+        "endDate": "2026-11-27",
+        "notes": "感恩节假期",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-10",
+        "title": "No School for Students; Staff PD",
+        "startDate": "2026-12-09",
+        "endDate": "2026-12-09",
+        "notes": "学生不上学；教职工专业发展日",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-11",
+        "title": "No School — Winter Break",
+        "startDate": "2026-12-21",
+        "endDate": "2027-01-01",
+        "notes": "寒假",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-12",
+        "title": "School Resumes",
+        "startDate": "2027-01-04",
+        "endDate": "2027-01-04",
+        "notes": "开学复课",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-13",
+        "title": "No School — MLK Day",
+        "startDate": "2027-01-18",
+        "endDate": "2027-01-18",
+        "notes": "马丁·路德·金纪念日",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-14",
+        "title": "Student Count Day",
+        "startDate": "2027-02-10",
+        "endDate": "2027-02-10",
+        "notes": "学生人数统计日",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-15",
+        "title": "No School — Mid-Winter Break",
+        "startDate": "2027-02-12",
+        "endDate": "2027-02-15",
+        "notes": "仲冬假期",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-16",
+        "title": "High School Full Day (Elem/MS half day)",
+        "startDate": "2027-03-09",
+        "endDate": "2027-03-09",
+        "notes": "高中全日；小学/初中半天",
+        "tags": [
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-17",
+        "title": "No School — Spring Break",
+        "startDate": "2027-03-26",
+        "endDate": "2027-04-02",
+        "notes": "春假",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-18",
+        "title": "Late Start for 10th (PSAT 8/9; WorkKeys 11)",
+        "startDate": "2027-04-08",
+        "endDate": "2027-04-08",
+        "notes": "10 年级晚到；PSAT 8/9 与 11 年级 WorkKeys",
+        "tags": [
+          "grade10",
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-19",
+        "title": "PSAT for 10th Grade (also SAT 11th; late start 9 & 12)",
+        "startDate": "2027-04-14",
+        "endDate": "2027-04-14",
+        "notes": "PSAT/SAT Testing 10th & 11th · 10 年级 PSAT；11 年级 SAT；9/12 晚到",
+        "tags": [
+          "grade10",
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-20",
+        "title": "Half Day for High School (8th Grade Transition Day)",
+        "startDate": "2027-04-26",
+        "endDate": "2027-04-26",
+        "notes": "高中半天（八年级过渡日）",
+        "tags": [
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-21",
+        "title": "No School for Students; Staff PD — Election Day",
+        "startDate": "2027-05-04",
+        "endDate": "2027-05-04",
+        "notes": "选举日；学生不上学；教职工专业发展",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-22",
+        "title": "High School Full Day (Elem/K-8 half day)",
+        "startDate": "2027-05-13",
+        "endDate": "2027-05-13",
+        "notes": "高中全日；小学/K-8 半天",
+        "tags": [
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-23",
+        "title": "No School — Memorial Day",
+        "startDate": "2027-05-31",
+        "endDate": "2027-05-31",
+        "notes": "阵亡将士纪念日",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-24",
+        "title": "High School Final Exams",
+        "startDate": "2027-06-11",
+        "endDate": "2027-06-12",
+        "notes": "高中期末考试 · specific days/schedule vary by school",
+        "tags": [
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-24b",
+        "title": "High School Final Exams",
+        "startDate": "2027-06-14",
+        "endDate": "2027-06-16",
+        "notes": "高中期末考试 · specific days/schedule vary by school",
+        "tags": [
+          "hs"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "aaps-25",
+        "title": "Last Day of School — Half Day",
+        "startDate": "2027-06-16",
+        "endDate": "2027-06-16",
+        "notes": "学年最后一天（半天）",
+        "tags": [
+          "all"
+        ],
+        "source": "AAPS"
+      },
+      {
+        "id": "soccer-1",
+        "title": "JV-A Practice",
+        "startDate": "2025-08-18",
+        "endDate": "2025-08-18",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-2",
+        "title": "JV-A Practice",
+        "startDate": "2025-08-19",
+        "endDate": "2025-08-19",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-3",
+        "title": "JV-A Practice",
+        "startDate": "2025-08-20",
+        "endDate": "2025-08-20",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-4",
+        "title": "JV-A vs. Dexter (H)",
+        "startDate": "2025-08-21",
+        "endDate": "2025-08-21",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-5",
+        "title": "JV-A Practice",
+        "startDate": "2025-08-22",
+        "endDate": "2025-08-22",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-6",
+        "title": "JV-A Practice (Track Field)",
+        "startDate": "2025-08-22",
+        "endDate": "2025-08-22",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-7",
+        "title": "JV-A @ Melvindale (A) (3:30 BUS)",
+        "startDate": "2025-08-25",
+        "endDate": "2025-08-25",
+        "notes": "5:30 PM–7:00 PM · Julian O. Strong Middle School, 18656 Prospect St, Melvindale, MI 48122, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-8",
+        "title": "JV-A @ Temperance Bedford (A) (3:45 BUS)",
+        "startDate": "2025-08-26",
+        "endDate": "2025-08-26",
+        "notes": "5:30 PM–7:00 PM · Bedford High School, 8285 Jackman Rd, Temperance, MI 48182, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-9",
+        "title": "JV-A Practice",
+        "startDate": "2025-08-27",
+        "endDate": "2025-08-27",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-10",
+        "title": "JV-A vs. Saline (H)",
+        "startDate": "2025-08-28",
+        "endDate": "2025-08-28",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-11",
+        "title": "JV-A: RISE",
+        "startDate": "2025-09-01",
+        "endDate": "2025-09-01",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-12",
+        "title": "JV-A @ Pioneer (A)",
+        "startDate": "2025-09-02",
+        "endDate": "2025-09-02",
+        "notes": "5:30 PM–7:00 PM · Pioneer High School, 601 W Stadium Blvd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-13",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-03",
+        "endDate": "2025-09-03",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-14",
+        "title": "JV-A @ Monroe (A) (3:45 BUS)",
+        "startDate": "2025-09-04",
+        "endDate": "2025-09-04",
+        "notes": "5:30 PM–7:00 PM · Monroe High School, 901 Herr Rd, Monroe, MI 48161, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-15",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-05",
+        "endDate": "2025-09-05",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-16",
+        "title": "JV-A @ Salem (A) (4:00 BUS)",
+        "startDate": "2025-09-08",
+        "endDate": "2025-09-08",
+        "notes": "5:30 PM–7:00 PM · PCEP Varsity Football Field/Track, N Canton Center Rd, Canton Township, MI 48187, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-17",
+        "title": "JV-A vs. Huron (H)",
+        "startDate": "2025-09-09",
+        "endDate": "2025-09-09",
+        "notes": "4:00 PM–5:30 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-18",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-10",
+        "endDate": "2025-09-10",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-19",
+        "title": "JV-A: RISE (Room A-115)",
+        "startDate": "2025-09-10",
+        "endDate": "2025-09-10",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-20",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-11",
+        "endDate": "2025-09-11",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-21",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-12",
+        "endDate": "2025-09-12",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-22",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-15",
+        "endDate": "2025-09-15",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-23",
+        "title": "JV-A Practice (Pizza Team Dinner after at Stadium)",
+        "startDate": "2025-09-15",
+        "endDate": "2025-09-15",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-24",
+        "title": "JV-A: RISE",
+        "startDate": "2025-09-15",
+        "endDate": "2025-09-15",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-25",
+        "title": "JV-A @ Dexter (A)",
+        "startDate": "2025-09-16",
+        "endDate": "2025-09-16",
+        "notes": "4:00 PM–5:30 PM · Dexter High School, 2200 N Parker Rd, Dexter, MI 48130, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-26",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-17",
+        "endDate": "2025-09-17",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-27",
+        "title": "JV-A vs. Temperance Bedford (H)",
+        "startDate": "2025-09-18",
+        "endDate": "2025-09-18",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-28",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-19",
+        "endDate": "2025-09-19",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-29",
+        "title": "JV-A vs. Northville (H)",
+        "startDate": "2025-09-22",
+        "endDate": "2025-09-22",
+        "notes": "4:00 PM–5:30 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-30",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-23",
+        "endDate": "2025-09-23",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-31",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-24",
+        "endDate": "2025-09-24",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-32",
+        "title": "JV-A Team Dinner (Gergics House)",
+        "startDate": "2025-09-24",
+        "endDate": "2025-09-24",
+        "notes": "7:00 PM–8:30 PM · 316 Honey Tree Wy, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-33",
+        "title": "JV-A: RISE",
+        "startDate": "2025-09-24",
+        "endDate": "2025-09-24",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-34",
+        "title": "JV-A vs. Pioneer (H)",
+        "startDate": "2025-09-25",
+        "endDate": "2025-09-25",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-35",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-26",
+        "endDate": "2025-09-26",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-36",
+        "title": "JV-A Practice",
+        "startDate": "2025-09-29",
+        "endDate": "2025-09-29",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-37",
+        "title": "JV-A vs. Monroe (H)",
+        "startDate": "2025-09-30",
+        "endDate": "2025-09-30",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-38",
+        "title": "JV-A Practice",
+        "startDate": "2025-10-01",
+        "endDate": "2025-10-01",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-39",
+        "title": "JV-A Practice",
+        "startDate": "2025-10-02",
+        "endDate": "2025-10-02",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-40",
+        "title": "JV-A @ Novi (A) (3:45 PM BUS)",
+        "startDate": "2025-10-06",
+        "endDate": "2025-10-06",
+        "notes": "5:30 PM–7:00 PM · Novi Meadows Stadium, 45825 W 11 Mile Rd, Novi, MI 48374, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-41",
+        "title": "JV-A @ Huron (A)",
+        "startDate": "2025-10-07",
+        "endDate": "2025-10-07",
+        "notes": "5:30 PM–7:00 PM · Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-42",
+        "title": "JV-A Practice",
+        "startDate": "2025-10-08",
+        "endDate": "2025-10-08",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-43",
+        "title": "JV-A: RISE",
+        "startDate": "2025-10-08",
+        "endDate": "2025-10-08",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-44",
+        "title": "JV-A: RISE",
+        "startDate": "2025-10-10",
+        "endDate": "2025-10-10",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-45",
+        "title": "JV-A: RISE",
+        "startDate": "2025-10-15",
+        "endDate": "2025-10-15",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-46",
+        "title": "JV-A: RISE",
+        "startDate": "2025-10-20",
+        "endDate": "2025-10-20",
+        "notes": "3:30 PM–4:15 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-47",
+        "title": "JV-A @ Dewitt (Scrimmage) Field 3",
+        "startDate": "2026-08-13",
+        "endDate": "2026-08-13",
+        "notes": "10:00 AM–11:00 AM · East Lansing Soccer Complex, 3700 Coleman Rd, East Lansing, MI 48823, USA · Ann Arbor Skyline vs Mason",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-48",
+        "title": "JV-A Practice",
+        "startDate": "2026-08-14",
+        "endDate": "2026-08-14",
+        "notes": "5:00 PM–5:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-49",
+        "title": "JV-A @ Independence Park Field 11 (Scrimmage)",
+        "startDate": "2026-08-15",
+        "endDate": "2026-08-15",
+        "notes": "11:20 AM–12:20 PM · Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA · Skyline vs Salem",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-50",
+        "title": "JV-A @ Independence Park Field 3 (Scrimmage)",
+        "startDate": "2026-08-15",
+        "endDate": "2026-08-15",
+        "notes": "8:50 AM–9:50 AM · Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA · Skyline vs Canton",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-51",
+        "title": "JV-A @ Independence Park Field 5 (Scrimmage)",
+        "startDate": "2026-08-15",
+        "endDate": "2026-08-15",
+        "notes": "1:50 PM–2:50 PM · Independence Park, 1898 Denton Rd, Canton Township, MI 48188, USA · Skyline vs Plymouth",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-52",
+        "title": "JV-A Practice",
+        "startDate": "2026-08-17",
+        "endDate": "2026-08-17",
+        "notes": "5:00 PM–7:00 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-53",
+        "title": "JV-A vs. Greenhills (Scrimmage) 4:30 arrival for warm-up",
+        "startDate": "2026-08-18",
+        "endDate": "2026-08-18",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-54",
+        "title": "JV-A Practice @ Track Field",
+        "startDate": "2026-08-19",
+        "endDate": "2026-08-19",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-55",
+        "title": "JV-A Practice (Track Field)",
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-20",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-56",
+        "title": "JV-A Practice (Track Field)",
+        "startDate": "2026-08-21",
+        "endDate": "2026-08-21",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-57",
+        "title": "JV-A Practice - Stadium",
+        "startDate": "2026-08-24",
+        "endDate": "2026-08-24",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-58",
+        "title": "JV-A @ Dexter 3pm arrival for warm-up",
+        "startDate": "2026-08-25",
+        "endDate": "2026-08-25",
+        "notes": "4:00 PM–5:30 PM · Dexter High School, 2200 N Parker Rd, Dexter, MI 48130, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-59",
+        "title": "JV-A Practice TIME CHANGE! @ Track",
+        "startDate": "2026-08-26",
+        "endDate": "2026-08-26",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-60",
+        "title": "JV-A vs. Bedford 4:30pm arrival for warm-up",
+        "startDate": "2026-08-27",
+        "endDate": "2026-08-27",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-61",
+        "title": "JV-A Practice - Stadium",
+        "startDate": "2026-08-28",
+        "endDate": "2026-08-28",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-62",
+        "title": "JV-A - Team Dinner following practice @ Smith's House",
+        "startDate": "2026-08-31",
+        "endDate": "2026-08-31",
+        "notes": "5:30 PM–7:30 PM · 3316 The Glade St, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-63",
+        "title": "JV-A Practice @ Track",
+        "startDate": "2026-08-31",
+        "endDate": "2026-08-31",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-64",
+        "title": "CANCELLED — JV-A @ Saline (heat)",
+        "startDate": "2026-09-01",
+        "endDate": "2026-09-01",
+        "notes": "5:30 PM–7:00 PM · Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA · Cancelled due to 118°F field temp (email 2026-09-01). No JV-A/JV-B outdoor practice that day either.",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "priorTitle": "JV-A @ Saline 4:30pm arrival for warm-up",
+        "priorNotes": "5:30 PM–7:00 PM · Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA",
+        "cancelled": true
+      },
+      {
+        "id": "soccer-65",
+        "title": "JV-A Practice @ Stadium",
+        "startDate": "2026-09-02",
+        "endDate": "2026-09-02",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-66",
+        "title": "JV-A vs. Pioneer 4:30pm arrival for warm-up",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-03",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-67",
+        "title": "JV-A TBD",
+        "startDate": "2026-09-04",
+        "endDate": "2026-09-04",
+        "notes": "6:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-68",
+        "title": "JVA and JVB TBD",
+        "startDate": "2026-09-07",
+        "endDate": "2026-09-07",
+        "notes": "",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-69",
+        "title": "JV-A vs. Monroe 4:30pm arrival for warm-up",
+        "startDate": "2026-09-08",
+        "endDate": "2026-09-08",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-70",
+        "title": "JV-A Practice @ track",
+        "startDate": "2026-09-09",
+        "endDate": "2026-09-09",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-71",
+        "title": "JV A- Practice @stadium",
+        "startDate": "2026-09-11",
+        "endDate": "2026-09-11",
+        "notes": "6:00 PM–7:00 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-72",
+        "title": "JV-A vs. Salem 4:30pm arrival for warm-up",
+        "startDate": "2026-09-14",
+        "endDate": "2026-09-14",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-73",
+        "title": "JV-A Practice @ Stadium",
+        "startDate": "2026-09-15",
+        "endDate": "2026-09-15",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-74",
+        "title": "JV-A practice @ stadium",
+        "startDate": "2026-09-16",
+        "endDate": "2026-09-16",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-75",
+        "title": "JV-A vs. Dexter 4:30pm arrival for warm-up",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-17",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-76",
+        "title": "JV-A @ Northville 10am arrival for warm up",
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "notes": "11:00 AM–12:30 PM · Northville High School, 45700 Six Mile Rd, Northville, MI 48168, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-77",
+        "title": "JV-A practice @ Stadium",
+        "startDate": "2026-09-21",
+        "endDate": "2026-09-21",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-78",
+        "title": "JV-A @ Bedford 4:30pm arrival for warm-up",
+        "startDate": "2026-09-22",
+        "endDate": "2026-09-22",
+        "notes": "5:30 PM–7:00 PM · Bedford High School, 8285 Jackman Rd, Temperance, MI 48182, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-79",
+        "title": "V and JV-A bus departure @ 3:30",
+        "startDate": "2026-09-22",
+        "endDate": "2026-09-22",
+        "notes": "3:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-80",
+        "title": "JV-A Practice @ Stadium",
+        "startDate": "2026-09-23",
+        "endDate": "2026-09-23",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-81",
+        "title": "JV-A vs. Saline 4:30pm arrival for warm-up",
+        "startDate": "2026-09-24",
+        "endDate": "2026-09-24",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-82",
+        "title": "JV-A practice @ Stadium",
+        "startDate": "2026-09-25",
+        "endDate": "2026-09-25",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-83",
+        "title": "JV-A Dinner @ the field organized by the Bednars",
+        "startDate": "2026-09-28",
+        "endDate": "2026-09-28",
+        "notes": "7:30 PM–8:30 PM · Skyline High School",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-84",
+        "title": "JV-A Practice @ track",
+        "startDate": "2026-09-28",
+        "endDate": "2026-09-28",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-85",
+        "title": "JV-A @ Pioneer 4:30pm arrival for warm-up",
+        "startDate": "2026-09-29",
+        "endDate": "2026-09-29",
+        "notes": "5:30 PM–7:00 PM · Pioneer High School, 601 W Stadium Blvd, Ann Arbor, MI 48103, USA · No bussing to/from this game (email week of 9/28)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-86",
+        "title": "JV-A practice @ Track",
+        "startDate": "2026-09-30",
+        "endDate": "2026-09-30",
+        "notes": "6:00 PM–7:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-87",
+        "title": "JV-A vs. Monroe 4:30pm arrival for warm-up",
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-01",
+        "notes": "5:30 PM–7:00 PM · Monroe High School, 901 Herr Rd, Monroe, MI 48161, USA · Away @ Monroe; warm-up arrival 4:30 PM (calendar)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-88",
+        "title": "JVA and JVB bus departure - return after JVA game",
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-01",
+        "notes": "2:15 PM · All JV early release 2:00 PM; JV bus departs 2:15 PM; returns after JV-A game (email week of 9/28)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-89",
+        "title": "JV-A practice @ Stadium",
+        "startDate": "2026-10-02",
+        "endDate": "2026-10-02",
+        "notes": "5:30 PM–7:00 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-90",
+        "title": "JV-A v Pioneer 9:30 warmup",
+        "startDate": "2026-10-03",
+        "endDate": "2026-10-03",
+        "notes": "10:30 AM–12:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-91",
+        "title": "JV-A Dinner @ Chizek's House",
+        "startDate": "2026-10-05",
+        "endDate": "2026-10-05",
+        "notes": "6:30 PM–8:30 PM · 853 S Zeeb Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-92",
+        "title": "JV-A practice @ Stadium",
+        "startDate": "2026-10-05",
+        "endDate": "2026-10-05",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-93",
+        "title": "JV-A vs. Huron 4:30pm arrival for warm-up",
+        "startDate": "2026-10-06",
+        "endDate": "2026-10-06",
+        "notes": "5:30 PM–7:00 PM · Skyline High School, 2552 N Maple Rd, Ann Arbor, MI 48103, USA",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-94",
+        "title": "JV-A practice @ Stadium",
+        "startDate": "2026-10-07",
+        "endDate": "2026-10-07",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "title": "MJR / U-M Depression Center presentation (JV-A & JV-B)",
+        "startDate": "2026-10-07",
+        "endDate": "2026-10-07",
+        "notes": "Skyline Library · 7:00 PM; players attend immediately after practice (email week of 10/5)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "id": "soccer-95"
+      },
+      {
+        "id": "soccer-96",
+        "title": "JV-A practice @ Stadium",
+        "startDate": "2026-10-08",
+        "endDate": "2026-10-08",
+        "notes": "5:00 PM–6:30 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "title": "Concessions Fundraiser @ Home Football vs Dexter",
+        "startDate": "2026-10-09",
+        "endDate": "2026-10-09",
+        "notes": "Skyline stadium · begin 5:45 PM through game; players/parents from any team may volunteer (email week of 10/5)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "id": "soccer-97"
+      },
+      {
+        "title": "No JV-A practice (Fall Break)",
+        "startDate": "2026-10-09",
+        "endDate": "2026-10-09",
+        "notes": "Confirmed: no JV-A practice on 10/9 (email weeks of 9/28 and 10/5)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "priorTitle": "JV-A Practice (if scheduled)",
+        "cancelled": true,
+        "id": "soccer-98"
+      },
+      {
+        "id": "soccer-99",
+        "title": "JV-A @ Huron 4:30pm warmup",
+        "startDate": "2026-10-12",
+        "endDate": "2026-10-12",
+        "notes": "5:30 PM–7:00 PM · Huron High School, 2727 Fuller Rd, Ann Arbor, MI 48105, USA · Confirmed away @ Huron HS (email 10/12 clarification; weekly email had incorrectly said home)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "priorNotes": "Week-of email said: All three teams vs Huron at home",
+        "priorTitle": "JV-A vs. Huron (H) [email error]"
+      },
+      {
+        "id": "soccer-100",
+        "title": "JV-A Final Practice- stadium",
+        "startDate": "2026-10-13",
+        "endDate": "2026-10-13",
+        "notes": "5:00 PM–6:00 PM",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "id": "soccer-101",
+        "title": "JV-A @ Saline 4:15 arrival for warm-up (NO BUSSES)",
+        "startDate": "2026-10-14",
+        "endDate": "2026-10-14",
+        "notes": "5:15 PM–6:45 PM · Saline High School, 1300 Campus Pkwy, Saline, MI 48176, USA · JV-A and JV-B @ Saline; no bussing (email week of 10/12)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer"
+      },
+      {
+        "title": "The Hairspot Fundraiser (final of season)",
+        "startDate": "2026-10-29",
+        "endDate": "2026-10-29",
+        "notes": "The Hairspot · haircuts 5:00–7:00 PM; all proceeds to Skyline Soccer (final fundraiser of season) · bring as many patrons as you can (week-of 10/26 email)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "id": "soccer-102",
+        "priorNotes": "The Hairspot · haircuts 5:00–7:00 PM; all proceeds to Skyline Soccer (program-wide)"
+      },
+      {
+        "id": "soccer-103",
+        "title": "JV-A Final Banquet",
+        "startDate": "2026-11-05",
+        "endDate": "2026-11-05",
+        "notes": "6:00–9:00 PM · Coratti's Pizzeria Bar & Bocce, 512 E William St, Ann Arbor · private upstairs + bocce courts · coaches & players + up to 2 guests per player · RSVP via Google Form (reconfirmed in skysocmens Week of 11/2/2026 email): https://docs.google.com/forms/d/e/1FAIpQLSdkvaI5RZ8YNerWtQyGtCZzJBtf0BZDQMUIh4po56PymFf2uw/viewform · pizza/pasta/salads/soft drinks; cash bar",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "priorNotes": "6:00–9:00 PM · Coratti's Pizzeria Bar & Bocce, 512 E William St, Ann Arbor · private upstairs + bocce courts · coaches & players + up to 2 guests per player · RSVP via Google Form (link in 10/21 skysocmens email): https://docs.google.com/forms/d/e/1FAIpQLSdkvaI5RZ8YNerWtQyGtCZzJBtf0BZDQMUIh4po56PymFf2uw/viewform · pizza/pasta/salads/soft drinks; cash bar"
+      },
+      {
+        "id": "soccer-104",
+        "title": "SABC Donut Dash — soccer player volunteers needed",
+        "startDate": "2026-11-01",
+        "endDate": "2026-11-01",
+        "notes": "SABC Donut Dash · arrive at Skyline by 8:30 AM · need ≥3 soccer players at water stations (encourage runners / share water); more welcome · reply to skysocmens 10/30 volunteer email if interested · race registration code EAGLE10 through Oct 31 (runsignup / Family Update)",
+        "tags": [
+          "jva"
+        ],
+        "source": "Sky Soccer",
+        "priorNotes": "SABC Donut Dash · need ≥3 Skyline soccer players along the race (encourage runners / water stations); more welcome · reply to skysocmens week-of 10/26 email if interested · (Family Update also lists runsignup code EAGLE10 through Oct 31)"
+      },
+      {
+        "startDate": "2025-08-05",
+        "title": "SL & New Members Marching Rehearsal",
+        "location": "C116 Band Room, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-08-12",
+        "title": "Band Camp",
+        "location": "",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-08-27",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-08-29",
+        "title": "Home Football Game (Annapolis)",
+        "location": "Band Room C116, Stadium",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-09-03",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-09-10",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-09-12",
+        "title": "Home Football Game (Monroe)",
+        "location": "C116, Stadium",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-09-17",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-09-24",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-09-26",
+        "title": "Home Football Game (Bedford)",
+        "location": "C116 Band Room, Stadium",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-01",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-03",
+        "title": "Homecoming Parade",
+        "location": "C116 Band Room",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-08",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-15",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-17",
+        "title": "Home Football Game (Marlette)",
+        "location": "C116 Band Room, Stadium",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-22",
+        "title": "Marching Band Rehearsal",
+        "location": "C116, Stadium, Grassy Knoll",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-10-24",
+        "title": "Home Football Game (Summit Academy) - CANCELLED",
+        "location": "C116 Band, Stadium",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-11-11",
+        "title": "Marching Band Banquet",
+        "location": "C116 Band Room, Commons",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2025-12-16",
+        "title": "Marching Band Banquet",
+        "location": "Skyline Commons",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-01-14",
+        "title": "Band Winter Concert",
+        "location": "C116, C104, C110, Auditorium",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2026-02-12",
+        "title": "VPAA Arts Benefit Performance",
+        "location": "C116, Auditorium",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2026-03-17",
+        "title": "Bands in Review North",
+        "location": "C116, C110, C104, C134, Auditorium",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2026-05-17",
+        "title": "Picnic Pops Concert 12-6pm",
+        "location": "@Pioneer",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2026-08-10",
+        "title": "Marching Band Section Leaders",
+        "location": "C116 band room",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-08-11",
+        "title": "Marching Band Section Leaders and New Members",
+        "location": "C116 band room, gym",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-08-18",
+        "title": "Skyline Band Camp",
+        "location": "Interlochen Center for the Arts, 4000 J. Maddy Pkwy, Interlochen, MI 49643, USA",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-09-02",
+        "title": "Marching Band Rehearsal",
+        "location": "C116 band room, stadium",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-09-04",
+        "title": "Home Football Game (Saline)",
+        "location": "C116 band room, music wing",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-09-18",
+        "title": "Homecoming Football Game (Huron)",
+        "location": "C116 band room",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-09-18",
+        "title": "Homecoming Parade",
+        "location": "C116 band room",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-10-09",
+        "title": "Home Football Game (Dexter)",
+        "location": "C116 band room · After game: Red Robin (Briarwood Circle) fundraiser all day dine-in/to-go (20%)",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-10-16",
+        "title": "Home Football Game (Flint Powers) (Side by Side)",
+        "location": "C116 band room · Tailgate 4:15 PM (includes 8th graders for Side by Side) · After game: last Red Robin fundraiser (Briarwood Circle), dine-in/to-go 20% back to Marching Band",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ],
+        "notes": "C116 band room · Tailgate 4:15 PM (includes 8th graders for Side by Side) · After game: last Red Robin fundraiser (Briarwood Circle), dine-in/to-go 20% back to Marching Band",
+        "priorNotes": "C116 band room"
+      },
+      {
+        "startDate": "2026-10-23",
+        "title": "Home Football Game (Brooklyn Columbia) — Senior Night",
+        "location": "C116 band room · Senior Recognition Night · Tailgate 4:15pm — STILL NEED more parent volunteers (signup via Jason Smith 10/22 email link) · STILL NEED Senior Night ceremony photo-takers — contact Jen & Dan Sopoci (jdsopoci@gmail.com / daniel.sopoci@tetratech.com); videographer is set · Senior Survey was due Tue Oct 20 (escorts + 2 accomplishments) · After game: bonfire at Szcomaks on North Maple — RSVP https://evite.me/GgG64yzVQN (see band-48)",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ],
+        "notes": "C116 band room · Senior Recognition Night · Tailgate 4:15pm — STILL NEED more parent volunteers (signup via Jason Smith 10/22 email link) · STILL NEED Senior Night ceremony photo-takers — contact Jen & Dan Sopoci (jdsopoci@gmail.com / daniel.sopoci@tetratech.com); videographer is set · Senior Survey was due Tue Oct 20 (escorts + 2 accomplishments) · After game: bonfire at Szcomaks on North Maple — RSVP https://evite.me/GgG64yzVQN (see band-48)",
+        "priorNotes": "C116 band room · Senior Recognition Night · Tailgate 4:15pm (volunteer signup via band email link) · Senior Survey was due Tue Oct 20 (escorts + 2 accomplishments) · After game: bonfire at Szcomaks on North Maple — RSVP https://evite.me/GgG64yzVQN (see band-48)",
+        "priorTitle": "Home Football Game (Brooklyn Columbia)"
+      },
+      {
+        "startDate": "2026-11-04",
+        "title": "Marching Band Banquet",
+        "location": "Skyline Commons · 7:00pm · open to all marching band members & families · still need dessert/savory item or volunteer help via SignUpGenius (link in Sky High Notes Week of Nov 2 / earlier Announcements emails)",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ],
+        "priorNotes": "Skyline Commons · 7:00pm · volunteer help or bring a treat via SignUpGenius (link in Jason Smith Announcements email 10/21)",
+        "notes": "Skyline Commons · 7:00pm · open to all marching band members & families · still need dessert/savory item or volunteer help via SignUpGenius (link in Sky High Notes Week of Nov 2 / earlier Announcements emails)",
+        "id": "band-34"
+      },
+      {
+        "startDate": "2026-12-02",
+        "title": "Band Winter Concert",
+        "location": "Skyline Auditorium · 7:00pm",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2027-03-06",
+        "title": "MSBOA Band Festival",
+        "location": "Pioneer HS",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2027-03-16",
+        "title": "Bands in Review (Skyline, Forsythe, A2Steam)",
+        "location": "Skyline Auditorium, Band Room, Choir Room, Orchestra Room",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2026-10-14",
+        "title": "Marching Band Rehearsal",
+        "location": "6:00–9:00pm · be ready in band room by 5:45pm",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2026-10-24",
+        "title": "MSBOA All State auditions (Saline HS)",
+        "location": "Saline High School · schedule on Schoology; write ID number on music",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ],
+        "priorNotes": "Saline High School",
+        "notes": "Saline High School · schedule on Schoology; write ID number on music",
+        "endDate": "2026-10-25"
+      },
+      {
+        "startDate": "2026-10-26",
+        "title": "Marching Band Pictures (during 1st hour)",
+        "location": "Mon Oct 26 group photo in stadium (1st hour); individual photos Tue–Wed Oct 27–28 (now past) · Memory Page Fundraiser NOW OPEN — view/order photos; deadline Fri Nov 13 11:59pm (see band-50 / Sky High Notes Week of Nov 2)",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ],
+        "priorNotes": "Mon group photo in stadium (1st hour); individual photos Tue–Wed · bring marching uniform + accessories (gloves, gauntlet, plume, etc.) · Memory Page Fundraiser coming weeks",
+        "notes": "Mon Oct 26 group photo in stadium (1st hour); individual photos Tue–Wed Oct 27–28 (now past) · Memory Page Fundraiser NOW OPEN — view/order photos; deadline Fri Nov 13 11:59pm (see band-50 / Sky High Notes Week of Nov 2)",
+        "id": "band-40"
+      },
+      {
+        "startDate": "2027-02-10",
+        "title": "Arts Benefit and Collage Concert (Symphony Band + chamber)",
+        "location": "Skyline Auditorium · 7:00pm",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2027-05-23",
+        "title": "Picnic Pops (Varsity / Concert / Symphony)",
+        "location": "Outside at Pioneer · 12:00–5:00pm",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2027-06-02",
+        "title": "VPAA Awards Night & Reception (mandatory)",
+        "location": "Skyline Auditorium · 7:00pm (graded event)",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony",
+          "marching"
+        ]
+      },
+      {
+        "startDate": "2027-06-12",
+        "title": "Skyline Graduation (Symphony Band)",
+        "location": "EMU Convocation Center · 7:00pm",
+        "source": "Skyline Band",
+        "tags": [
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2026-10-29",
+        "endDate": "2026-10-29",
+        "title": "Band Trip Parent Meeting",
+        "location": "Orchestra Room · 7:00pm · next band trip (27–28 school year) and trip policy changes; open to ALL ensembles/grades; slides shared afterward if you cannot attend",
+        "notes": "Orchestra Room · 7:00pm · next band trip (27–28 school year) and trip policy changes; open to ALL ensembles/grades; slides shared afterward if you cannot attend",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ]
+      },
+      {
+        "startDate": "2027-02-06",
+        "endDate": "2027-02-06",
+        "title": "MSBOA Solo & Ensemble",
+        "location": "Sat Feb 6 · registration + payment deadline was Tue Oct 27 (OVERDUE — check status) · if performing a solo, book accompanist ASAP (District 12 schools share the day; list in Sky High Notes Week of Nov 2 PDF / Schoology) · fees: $15 solo / $10 per person ensemble / $75 chamber (9–20) · pay by check (SFA) or cash in envelope → Band Dropbox",
+        "notes": "Sat Feb 6 · registration + payment deadline was Tue Oct 27 (OVERDUE — check status) · if performing a solo, book accompanist ASAP (District 12 schools share the day; list in Sky High Notes Week of Nov 2 PDF / Schoology) · fees: $15 solo / $10 per person ensemble / $75 chamber (9–20) · pay by check (SFA) or cash in envelope → Band Dropbox",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ],
+        "priorNotes": "Sat Feb 6 · register by Tue Oct 27 (form in Sky High Notes 10/25) · pay by check (SFA) or cash in envelope → Band Dropbox by Oct 27 · fees: $15 solo / $10 per person ensemble / $75 chamber (9–20)",
+        "id": "band-46"
+      },
+      {
+        "id": "band-47",
+        "startDate": "2026-10-21",
+        "endDate": "2026-10-21",
+        "title": "Marching Band Rehearsal",
+        "location": "6:00–9:00pm · be ready in band room by 5:45pm · section leader meeting 5:30pm",
+        "notes": "6:00–9:00pm · be ready in band room by 5:45pm · section leader meeting 5:30pm",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "id": "band-48",
+        "startDate": "2026-10-23",
+        "endDate": "2026-10-23",
+        "title": "Bonfire after Senior Night game (Szcomaks)",
+        "location": "After Brooklyn-Columbia Senior Night game · North Maple (½ mile south of North Territorial; dirt roads from Skyline or US-23 exit 49) · outdoor fireplace + field bonfire · bring chairs/blankets/instruments/glowsticks · hosts provide Costco pizza; snacks/drinks/s'mores welcome · whole family · RSVP Evite https://evite.me/GgG64yzVQN · Angie Wolney 248-515-4497 / Dennis Sczomak 248-515-6752",
+        "notes": "After Brooklyn-Columbia Senior Night game · North Maple (½ mile south of North Territorial; dirt roads from Skyline or US-23 exit 49) · outdoor fireplace + field bonfire · bring chairs/blankets/instruments/glowsticks · hosts provide Costco pizza; snacks/drinks/s'mores welcome · whole family · RSVP Evite https://evite.me/GgG64yzVQN · Angie Wolney 248-515-4497 / Dennis Sczomak 248-515-6752",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ],
+        "priorNotes": "After Brooklyn-Columbia home game · at the Szcomaks · students & parents welcome (replaces Red Robin)"
+      },
+      {
+        "id": "band-49",
+        "startDate": "2026-11-09",
+        "endDate": "2026-11-09",
+        "title": "SFA Booster Meeting (Zoom)",
+        "location": "7:30pm via Zoom · Skyline Band Boosters (SFA)",
+        "notes": "7:30pm via Zoom · Skyline Band Boosters (SFA)",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ]
+      },
+      {
+        "id": "band-50",
+        "startDate": "2026-11-13",
+        "endDate": "2026-11-13",
+        "title": "Marching Band Memory Page Fundraiser — order deadline",
+        "location": "Order by Fri Nov 13 11:59pm · view/order links in Sky High Notes Week of Nov 2 · portion of proceeds to Band",
+        "notes": "Photos ready (full band + individual marching members) · view & order via links in Jason Smith Sky High Notes Week of Nov 2 · deadline Fri Nov 13 11:59pm · portion of proceeds returns to Band · next year: Varsity/Concert/Symphony Memory Pages",
+        "source": "Skyline Band",
+        "tags": [
+          "marching"
+        ]
+      },
+      {
+        "id": "band-51",
+        "startDate": "2026-12-14",
+        "endDate": "2026-12-14",
+        "title": "SFA Booster Meeting (Zoom)",
+        "location": "7:30pm via Zoom · Skyline Band Boosters (SFA)",
+        "notes": "7:30pm via Zoom · Skyline Band Boosters (SFA) · link in Sky High Notes Week of Nov 2",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ]
+      },
+      {
+        "id": "band-52",
+        "startDate": "2027-01-03",
+        "endDate": "2027-01-03",
+        "title": "Christmas Tree Pick-up Fundraiser",
+        "location": "Ann Arbor · teams of band parents & students pick up trees for recycling · suggested donation $20–$30",
+        "notes": "Band parents/students drive around Ann Arbor picking up Christmas trees for recycling · suggested donation $20–$30 · organizing volunteers soon (Sky High Notes Week of Nov 2) · reach out to Jason Smith if interested in helping organize",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ]
+      },
+      {
+        "id": "band-53",
+        "startDate": "2027-01-10",
+        "endDate": "2027-01-10",
+        "title": "Christmas Tree Pick-up Fundraiser",
+        "location": "Ann Arbor · teams of band parents & students pick up trees for recycling · suggested donation $20–$30",
+        "notes": "Second pick-up date · band parents/students · suggested donation $20–$30 · organizing volunteers soon (Sky High Notes Week of Nov 2) · reach out to Jason Smith if interested in helping organize",
+        "source": "Skyline Band",
+        "tags": [
+          "marching",
+          "symphony"
+        ]
+      }
     ];
 
     const TAG_LABELS = {
